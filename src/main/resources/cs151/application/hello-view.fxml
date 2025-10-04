@@ -6,8 +6,9 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
-<VBox alignment="CENTER" prefHeight="379.0" prefWidth="601.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="cs151.application.MainController">
+<VBox alignment="CENTER" prefHeight="379.0" prefWidth="601.0" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -20,6 +21,11 @@
          </ToolBar>
       
           <Label fx:id="welcomeText" />
+         <TextFlow prefHeight="200.0" prefWidth="200.0">
+            <children>
+               <Label fx:id="appName" text="STUDENT HUB" />
+            </children>
+         </TextFlow>
          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
             <children>
                <Button mnemonicParsing="false" text="Programming Language">
