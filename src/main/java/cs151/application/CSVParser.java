@@ -49,7 +49,9 @@ public class CSVParser {
 
     public String getData() {
         String data = languages.get(this.index);
-        this.index++;
+        if(index < languages.size()) {
+            this.index++;
+        }
         return data;
     }
 }
