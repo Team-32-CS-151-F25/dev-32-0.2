@@ -30,7 +30,7 @@
                </Label>
                <HBox alignment="CENTER" prefHeight="26.0" prefWidth="552.0">
                   <children>
-                     <Button mnemonicParsing="false" text="Programming Language">
+                     <Button mnemonicParsing="false" onAction="#onProgrammingLanguageButtonClick" text="Programming Language">
                         <HBox.margin>
                            <Insets left="20.0" right="20.0" />
                         </HBox.margin>
