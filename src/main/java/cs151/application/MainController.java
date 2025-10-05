@@ -32,21 +32,19 @@ public class MainController {
     // change back to homepage
     @FXML
     protected void onHomeButtonClick(ActionEvent event) {
-        // this line
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        changeScene("hello-view.fxml");
+        changeScene(event, "hello-view.fxml");
     }
 
     // switch to programming language scene
     @FXML
     protected void onProgrammingLanguageButtonClick(ActionEvent event) {
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // unnecessary, testing to see if button worked
-        changeScene("ProgrammingLanguage.fxml");
+        changeScene(event,"ProgrammingLanguage.fxml");
     }
 
 
-    protected void changeScene(String fxmlFile) {
+    protected void changeScene(ActionEvent event, String fxmlFile) {
         try {
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
             stage.setScene(new Scene(root));
