@@ -11,6 +11,8 @@ import javafx.stage.*;
 import javafx.event.*;
 import javafx.scene.control.TextField;
 
+
+
 // errors
 import java.io.IOException;
 
@@ -24,6 +26,8 @@ public class MainController {
 
     @FXML
     private Label appName;
+
+    public CSVParser parser = new CSVParser("src/main/resources/cs151/application/languages.csv");
 
     @FXML
     protected void onHelloButtonClick() {
@@ -43,11 +47,17 @@ public class MainController {
     }
 
     @FXML
-    protected void onAddLanguageClick(ActionEvent event) {
+    protected void onAddLanguageClick(ActionEvent event) throws IOException {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         TextField langField = (TextField) stage.getScene().lookup("#languageNameInput");
         String language =  langField.getText();
-        System.out.println("Language: " + language); // testing if method works 
+         // testing if method works
+        if (!parser.exists(language)) {
+            parser.setData(language);
+            System.out.println("Added language: " + language);
+        }
+
+
     }
 
 

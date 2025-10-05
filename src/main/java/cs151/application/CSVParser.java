@@ -13,7 +13,7 @@ public class CSVParser {
     private int index = 0;
 
 
-    CSVParser(String filename){
+    public CSVParser(String filename){
         CSVParser.filename = filename;
         try {
             readFile(filename);
@@ -35,7 +35,7 @@ public class CSVParser {
     }
 
     public void setData(String data) throws IOException {
-        FileWriter fw = null;
+        FileWriter fw;
         try {
             fw = new FileWriter(filename);
         } catch (IOException e) {
@@ -53,5 +53,14 @@ public class CSVParser {
             this.index++;
         }
         return data;
+    }
+
+    public boolean exists(String value) {
+        for (String lang : languages) {
+            if (lang.trim().equalsIgnoreCase(value.trim())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
