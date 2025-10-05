@@ -41,6 +41,11 @@ public class MainController {
         changeScene(event,"ProgrammingLanguage.fxml");
     }
 
+    @FXML
+    protected void onAddLanguageClick(ActionEvent event) {
+        //
+    }
+
 
     protected void changeScene(ActionEvent event, String fxmlFile) {
         try {
