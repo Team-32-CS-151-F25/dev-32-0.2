@@ -11,8 +11,6 @@ import javafx.stage.*;
 import javafx.event.*;
 import javafx.scene.control.TextField;
 
-
-
 // errors
 import java.io.IOException;
 
@@ -47,10 +45,12 @@ public class MainController {
     }
 
     @FXML
-    protected void onAddLanguageClick(ActionEvent event) throws IOException {
+    protected void onAddLanguageClick(ActionEvent event) {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         TextField langField = (TextField) stage.getScene().lookup("#languageNameInput");
         String language =  langField.getText();
+        System.out.println("Language: " + language); // testing if method works
+        langField.clear();
          // testing if method works
         if (!parser.exists(language)) {
             parser.setData(language);
