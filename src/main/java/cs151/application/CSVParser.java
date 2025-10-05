@@ -35,15 +35,16 @@ public class CSVParser {
     }
 
     public void setData(String data) throws IOException {
-        FileWriter fw;
-        try {
-            fw = new FileWriter(filename);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        data = data.trim();
+        if (data.isEmpty() || exists(data)) {  // duplicate prevention
+            return;
         }
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(",");
-        bw.write(data);
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, true))) {
+            if (!languages.isEmpty()) {
+                bw.write(","); // no comma on first entry
+            }
+            bw.write(data);
+        }
         languages.add(data);
     }
 
