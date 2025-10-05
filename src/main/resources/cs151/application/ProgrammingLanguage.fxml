@@ -13,13 +13,13 @@
     <children>
         <VBox prefHeight="481.0" prefWidth="632.0" style="-fx-background-color: #93AEC4;">
             <children>
+                  <ToolBar blendMode="COLOR_BURN" prefHeight="37.0" prefWidth="632.0">
+                      <items>
+                          <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
+                      </items>
+                  </ToolBar>
                 <TextFlow prefHeight="459.0" prefWidth="619.0">
                     <children>
-                        <ToolBar prefHeight="37.0" prefWidth="632.0">
-                            <items>
-                                <Button mnemonicParsing="false" text="Home" />
-                            </items>
-                        </ToolBar>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="632.0" text="Programming Languages">
                             <font>
                                 <Font size="40.0" />
