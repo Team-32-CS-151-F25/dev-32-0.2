@@ -3,15 +3,21 @@ package cs151.application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+
 // we need a lot of stuff from these so I imported all
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
+import javafx.event.*;
 
 // errors
 import java.io.IOException;
 
+
 public class MainController {
+
+    private Stage stage;
+
     @FXML
     private Label welcomeText;
 
@@ -25,34 +31,26 @@ public class MainController {
 
     // change back to homepage
     @FXML
-    protected void onHomeButtonClick() {
-        changeScene("hello-view.fxml");
+    protected void onHomeButtonClick(ActionEvent event) {
+        changeScene(event, "hello-view.fxml");
     }
 
     // switch to programming language scene
     @FXML
-    protected void onProgrammingLanguageButtonClick() {
-        welcomeText.setText("Select Programming Language"); // unnecessary, testing to see if button worked
-
-
-        changeScene("ProgrammingLanguage.fxml");
+    protected void onProgrammingLanguageButtonClick(ActionEvent event) {
+        changeScene(event,"ProgrammingLanguage.fxml");
     }
 
 
-    private void changeScene(String fxmlFile) {
+    protected void changeScene(ActionEvent event, String fxmlFile) {
         try {
-            // load fxml file
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
-
-            // get the current stage
-            Stage stage = (Stage) welcomeText.getScene().getWindow();
-
-            // set the new scene
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
-            System.out.println("scene change failed");
+            e.printStackTrace();
         }
     }
 
