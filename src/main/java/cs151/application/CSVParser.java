@@ -23,14 +23,20 @@ public class CSVParser {
     }
 
     public void readFile(String filename) throws IOException {
-        FileReader fr = new FileReader(filename);
-        BufferedReader br = new BufferedReader(fr);
-        String line;
-        while ((line = br.readLine()) != null) {
-            String[] data = line.split(",");
-            Collections.addAll(languages, data);
-        }
+        languages.clear(); //  prevent duplicates when reloading scenes
 
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                for (String d : data) {
+                    String trimmed = d.trim();
+                    if (!trimmed.isEmpty()) {
+                        languages.add(trimmed);
+                    }
+                }
+            }
+        }
     }
 
     public void setData(String data) throws IOException {

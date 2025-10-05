@@ -94,6 +94,12 @@ public class MainController {
             Parent root = loader.load();
             stage.setScene(new Scene(root));
             stage.show();
+
+            // Only for programminglanguage.fxml scene, update list if it exists
+            TextArea languageList = (TextArea) root.lookup("#languageList");
+            if (languageList != null) {
+                refreshLanguageList(stage);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
