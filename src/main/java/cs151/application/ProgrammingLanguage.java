@@ -6,11 +6,11 @@ public class ProgrammingLanguage {
     private final static String filename = "src/main/resources/cs151/application/languages.csv";
     private static CSVParser parser = new CSVParser(filename);
 
-    public void setLanguage(String language) throws IOException {
+    public static void setLanguage(String language) throws IOException {
         parser.setData(language);
     }
 
-    public String getLanguage(String language) {
+    public static String getLanguage() {
         return parser.getData();
     }
 }
