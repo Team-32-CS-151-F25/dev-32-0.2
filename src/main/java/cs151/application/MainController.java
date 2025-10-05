@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 // we need a lot of stuff from these so I imported all
 import javafx.fxml.*;
 import javafx.scene.*;
+import javafx.scene.control.TextArea;
 import javafx.stage.*;
 import javafx.event.*;
 import javafx.scene.control.TextField;
@@ -26,6 +27,13 @@ public class MainController {
     private Label appName;
 
     public CSVParser parser = new CSVParser("src/main/resources/cs151/application/languages.csv");
+
+    /*
+    public void initialize() {
+        stage = // get stage somehow
+        refreshLanguageList(stage);
+    }
+    */
 
     @FXML
     protected void onHelloButtonClick() {
@@ -48,14 +56,28 @@ public class MainController {
     protected void onAddLanguageClick(ActionEvent event) throws IOException {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         TextField langField = (TextField) stage.getScene().lookup("#languageNameInput");
-        String language =  langField.getText();
+        String language = langField.getText().trim();
         langField.clear();
-        if (!parser.exists(language)) {
+
+        if (!language.isEmpty() && !parser.exists(language)) {
             parser.setData(language);
-            System.out.println("Added language: " + language);
         }
 
+        // Update the TextArea after adding
+        refreshLanguageList(stage);
+    }
 
+    @FXML
+    private void refreshLanguageList(Stage stage) {
+        TextArea languageList = (TextArea) stage.getScene().lookup("#languageList");
+        if (languageList == null) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (String lang : CSVParser.languages) {
+            sb.append(lang.trim()).append("\n");
+        }
+        languageList.setText(sb.toString());
     }
 
 
