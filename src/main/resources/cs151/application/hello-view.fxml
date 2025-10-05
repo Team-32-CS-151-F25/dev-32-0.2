@@ -18,8 +18,6 @@
                 <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
               </items>
             </ToolBar>
-         
-                <Label fx:id="welcomeText" />
 
                    <HBox prefHeight="300.0" prefWidth="300.0" />
               <Label fx:id="appName" alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="383.0" prefWidth="591.0" text="STUDENT HUB">
@@ -35,7 +33,7 @@
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
                   </Button>
-                   <Button onAction="#onHelloButtonClick" text="Student Information">
+                   <Button text="Student Information">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
