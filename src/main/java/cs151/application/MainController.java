@@ -47,7 +47,8 @@ public class MainController {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         TextField langField = (TextField) stage.getScene().lookup("#languageNameInput");
         String language =  langField.getText();
-        System.out.println("Language: " + language); // testing if method works 
+        System.out.println("Language: " + language); // testing if method works
+        langField.clear();
     }
 
 
