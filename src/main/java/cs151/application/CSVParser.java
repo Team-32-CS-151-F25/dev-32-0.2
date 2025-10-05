@@ -26,8 +26,7 @@ public class CSVParser {
         FileReader fr = new FileReader(filename);
         BufferedReader br = new BufferedReader(fr);
         String line;
-        line = br.readLine();
-        while (line != null) {
+        while ((line = br.readLine()) != null) {
             String[] data = line.split(",");
             Collections.addAll(languages, data);
         }
@@ -48,6 +47,7 @@ public class CSVParser {
         languages.add(data);
     }
 
+    /*
     public String getData() {
         String data = languages.get(this.index);
         if(index < languages.size()) {
@@ -55,6 +55,8 @@ public class CSVParser {
         }
         return data;
     }
+
+     */
 
     public boolean exists(String value) {
         for (String lang : languages) {

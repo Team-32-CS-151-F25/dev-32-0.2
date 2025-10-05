@@ -69,15 +69,21 @@ public class MainController {
 
     @FXML
     private void refreshLanguageList(Stage stage) {
-        TextArea languageList = (TextArea) stage.getScene().lookup("#languageList");
-        if (languageList == null) {
-            return;
+        try {
+            TextArea languageList = (TextArea) stage.getScene().lookup("#languageList");
+            if (languageList == null) {
+                return;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (String lang : CSVParser.languages) {
+                sb.append(lang.trim()).append("\n");
+            }
+            languageList.setText(sb.toString());
+
+        } catch (Exception e) {
+             System.out.println(e);
+             System.out.println("Language list could not be loaded");
         }
-        StringBuilder sb = new StringBuilder();
-        for (String lang : CSVParser.languages) {
-            sb.append(lang.trim()).append("\n");
-        }
-        languageList.setText(sb.toString());
     }
 
 

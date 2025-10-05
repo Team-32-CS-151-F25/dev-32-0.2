@@ -11,6 +11,7 @@ public class ProgrammingLanguage {
     }
 
     public static String getLanguage() {
-        return parser.getData();
+        //return parser.getData();
+        return null;
     }
 }
