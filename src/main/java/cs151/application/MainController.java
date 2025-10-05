@@ -26,6 +26,11 @@ public class MainController {
     }
 
     @FXML
+    protected void onAddLanguageClick() {
+        //
+    }
+
+    @FXML
     protected void onProgrammingLangButtonClick() throws IOException {
         FXMLLoader fxmlLoader1 = new FXMLLoader(Main.class.getResource("programmingLanguages-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader1.load(), 600, 700);

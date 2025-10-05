@@ -13,7 +13,7 @@ public class CSVParser {
     private int index = 0;
 
 
-    CSVParser(String filename){
+    public CSVParser(String filename){
         CSVParser.filename = filename;
         try {
             readFile(filename);
