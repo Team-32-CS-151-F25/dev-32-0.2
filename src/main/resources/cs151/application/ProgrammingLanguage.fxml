@@ -4,16 +4,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox alignment="CENTER" prefHeight="448.0" prefWidth="632.0" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
-    <children>
-        <VBox prefHeight="481.0" prefWidth="632.0" style="-fx-background-color: #93AEC4;">
+<AnchorPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
+   <children>
+        <VBox layoutX="1.0" prefHeight="481.0" prefWidth="632.0" style="-fx-background-color: #93AEC4;">
             <children>
                   <ToolBar blendMode="COLOR_BURN" prefHeight="37.0" prefWidth="632.0">
                       <items>
@@ -25,18 +25,17 @@
                           <Font size="40.0" />
                       </font>
                   </Label>
-                <TextFlow prefHeight="201.0" prefWidth="632.0">
+                <TextFlow prefHeight="118.0" prefWidth="645.0">
                     <children>
                         <Label alignment="CENTER_RIGHT" layoutY="10.0" prefHeight="44.0" prefWidth="208.0" text="Language Names *: " />
                         <TextField fx:id="languageNameInput" prefHeight="26.0" prefWidth="254.0" promptText="Enter a programming language" translateX="11.0" translateY="16.0" />
                         <Button mnemonicParsing="false" onAction="#onAddLanguageClick" prefHeight="26.0" prefWidth="45.0" text="Add" translateX="19.0" translateY="16.0" />
                         <Label alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="208.0" text="Inputted Languges: " translateX="-1.0" translateY="29.0" />
-                        <TextArea fx:id="languageList" editable="false" prefHeight="159.0" prefWidth="430.0" translateX="98.0" translateY="28.0" />
                     </children>
                 </TextFlow>
-            <TableView fx:id="table" maxWidth="430.0" prefHeight="111.0" prefWidth="490.0" translateX="98.0">
+            <TableView fx:id="table" maxWidth="430.0" prefHeight="224.0" prefWidth="430.0" translateX="98.0">
               <columns>
-                <TableColumn fx:id="languageColumn" editable="false" maxWidth="430.0" minWidth="430.0" prefWidth="430.0" resizable="false" text="C1" />
+                <TableColumn fx:id="languageColumn" editable="false" maxWidth="430.0" minWidth="430.0" prefWidth="430.0" resizable="false" text="Languages" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -44,5 +43,5 @@
             </TableView>
             </children>
         </VBox>
-    </children>
-</VBox>
+   </children>
+</AnchorPane>

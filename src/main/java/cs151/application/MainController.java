@@ -59,28 +59,28 @@ public class MainController {
         Faculty.setProgrammingLanguage(language);
 
         // Update the TextArea after adding
-        refreshLanguageList(stage);
+        //refreshLanguageList(stage);
         refreshLanguageTable(stage);
     }
 
-    @FXML
-    private void refreshLanguageList(Stage stage) {
-        try {
-            TextArea languageList = (TextArea) stage.getScene().lookup("#languageList");
-            if (languageList == null) {
-                return;
-            }
-            StringBuilder sb = new StringBuilder();
-            for (String lang : Faculty.getProgrammingLanguage()) {
-                sb.append(lang.trim()).append("\n");
-            }
-            languageList.setText(sb.toString());
-
-        } catch (Exception e) {
-             System.out.println(e);
-             System.out.println("Language list could not be loaded");
-        }
-    }
+//    @FXML
+//    private void refreshLanguageList(Stage stage) {
+//        try {
+//            TextArea languageList = (TextArea) stage.getScene().lookup("#languageList");
+//            if (languageList == null) {
+//                return;
+//            }
+//            StringBuilder sb = new StringBuilder();
+//            for (String lang : Faculty.getProgrammingLanguage()) {
+//                sb.append(lang.trim()).append("\n");
+//            }
+//            languageList.setText(sb.toString());
+//
+//        } catch (Exception e) {
+//             System.out.println(e);
+//             System.out.println("Language list could not be loaded");
+//        }
+//    }
 
     @FXML
     private void refreshLanguageTable(Stage stage) {
@@ -89,11 +89,10 @@ public class MainController {
             ObservableList<String> data = FXCollections.observableArrayList(Faculty.getProgrammingLanguage());
             tableView.setItems(data);
 
-            languageColumn = new TableColumn("C1");
+            languageColumn = new TableColumn("Languages");
             languageColumn.setCellValueFactory(names -> new ReadOnlyStringWrapper(names.getValue()));
 
             tableView.getColumns().setAll(languageColumn);
-
 
         } catch (Exception e) {
             System.out.println(e);
@@ -110,9 +109,8 @@ public class MainController {
             stage.show();
 
             // Only for programminglanguage.fxml scene, update list if it exists
-            TextArea languageList = (TextArea) root.lookup("#languageList");
-            if (languageList != null) {
-                refreshLanguageList(stage);
+            if (Faculty.getProgrammingLanguage() != null) {
+                //refreshLanguageList(stage);
                 refreshLanguageTable(stage);
             }
         } catch (IOException e) {
