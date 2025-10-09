@@ -7,11 +7,12 @@ public class ProgrammingLanguage {
     private static CSVParser parser = new CSVParser(filename);
 
     public static void setLanguage(String language) throws IOException {
-        parser.setData(language);
+        if (!language.isEmpty() && !parser.exists(language)) {
+            parser.setData(language);
+        }
     }
 
-    public static String getLanguage() {
-        //return parser.getData();
-        return null;
+    public static String[] getLanguage() {
+        return parser.getData();
     }
 }

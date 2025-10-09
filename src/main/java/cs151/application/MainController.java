@@ -1,8 +1,6 @@
 package cs151.application;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-
 
 // we need a lot of stuff from these so I imported all
 import javafx.fxml.*;
@@ -20,25 +18,12 @@ public class MainController {
 
     private Stage stage;
 
-    @FXML
-    private Label welcomeText;
-
-    @FXML
-    private Label appName;
-
-    public CSVParser parser = new CSVParser("src/main/resources/cs151/application/languages.csv");
-
     /*
     public void initialize() {
         stage = // get stage somehow
         refreshLanguageList(stage);
     }
     */
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 
     // change back to homepage
     @FXML
@@ -59,9 +44,7 @@ public class MainController {
         String language = langField.getText().trim();
         langField.clear();
 
-        if (!language.isEmpty() && !parser.exists(language)) {
-            parser.setData(language);
-        }
+        Faculty.setProgrammingLanguage(language);
 
         // Update the TextArea after adding
         refreshLanguageList(stage);
@@ -75,7 +58,7 @@ public class MainController {
                 return;
             }
             StringBuilder sb = new StringBuilder();
-            for (String lang : CSVParser.languages) {
+            for (String lang : Faculty.getProgrammingLanguage()) {
                 sb.append(lang.trim()).append("\n");
             }
             languageList.setText(sb.toString());
