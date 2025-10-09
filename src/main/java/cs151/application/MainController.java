@@ -1,11 +1,18 @@
 package cs151.application;
 
+import javafx.beans.property.ReadOnlyStringProperty;
+import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
 // we need a lot of stuff from these so I imported all
 import javafx.fxml.*;
 import javafx.scene.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.*;
 import javafx.event.*;
 import javafx.scene.control.TextField;
@@ -17,6 +24,11 @@ import java.io.IOException;
 public class MainController {
 
     private Stage stage;
+
+    @FXML
+    private TableView tableView;
+    @FXML
+    private TableColumn<String, String> languageColumn;
 
     /*
     public void initialize() {
@@ -48,6 +60,7 @@ public class MainController {
 
         // Update the TextArea after adding
         refreshLanguageList(stage);
+        refreshLanguageTable(stage);
     }
 
     @FXML
@@ -69,6 +82,24 @@ public class MainController {
         }
     }
 
+    @FXML
+    private void refreshLanguageTable(Stage stage) {
+        try {
+            tableView = (TableView) stage.getScene().lookup("#table");
+            ObservableList<String> data = FXCollections.observableArrayList(Faculty.getProgrammingLanguage());
+            tableView.setItems(data);
+
+            languageColumn = new TableColumn("C1");
+            languageColumn.setCellValueFactory(names -> new ReadOnlyStringWrapper(names.getValue()));
+
+            tableView.getColumns().setAll(languageColumn);
+
+
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Language Table could not be loaded");
+        }
+    }
 
     protected void changeScene(ActionEvent event, String fxmlFile) {
         try {
@@ -82,6 +113,7 @@ public class MainController {
             TextArea languageList = (TextArea) root.lookup("#languageList");
             if (languageList != null) {
                 refreshLanguageList(stage);
+                refreshLanguageTable(stage);
             }
         } catch (IOException e) {
             e.printStackTrace();
