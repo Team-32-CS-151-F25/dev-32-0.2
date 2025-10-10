@@ -95,7 +95,7 @@ public class MainController {
             tableView.getColumns().setAll(languageColumn);
 
         } catch (Exception e) {
-            System.out.println(e);
+            //System.out.println(e);
             System.out.println("Language Table could not be loaded");
         }
     }
