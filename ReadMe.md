@@ -1,5 +1,5 @@
 # Name of application: Student Hub
-# Version: 0.2
+# Version: 0.3
 
 ## Description: 
 Student Hub allows professor to create and manage student profiles, by storing basic student information, skills, interests, and evaluations. It’s a comprehensive tool that helps maintain record of students’ academic and professional development.
