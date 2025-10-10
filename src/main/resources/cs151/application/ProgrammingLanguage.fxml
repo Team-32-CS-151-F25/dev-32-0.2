@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox alignment="CENTER" prefHeight="448.0" prefWidth="632.0" spacing="20.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
+<VBox alignment="CENTER" prefHeight="448.0" prefWidth="632.0" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
     <children>
         <VBox prefHeight="481.0" prefWidth="632.0" style="-fx-background-color: #93AEC4;">
             <children>
@@ -25,10 +25,10 @@
                                 <Font size="40.0" />
                             </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutY="10.0" prefHeight="44.0" prefWidth="208.0" text="Language Names *: " />
-                        <TextField fx:id="languageNameInput" prefHeight="26.0" prefWidth="254.0" promptText="Enter a programming language" translateX="11.0" translateY="16.0" />
+                        <Label alignment="CENTER_RIGHT" layoutY="10.0" prefHeight="40.0" prefWidth="176.0" text="Names* : " translateY="7.0" />
+                        <TextField fx:id="languageNameInput" prefHeight="26.0" prefWidth="254.0" promptText="Enter a programming language" translateX="11.0" translateY="17.0" />
                         <Button mnemonicParsing="false" onAction="#onAddLanguageClick" prefHeight="26.0" prefWidth="45.0" text="Add" translateX="19.0" translateY="16.0" />
-                        <Label alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="208.0" text="Inputted Languges: " translateX="-1.0" translateY="29.0" />
+                        <Label alignment="CENTER" prefHeight="44.0" prefWidth="243.0" text="Inputs:" translateX="-1.0" translateY="29.0" />
                         <TextArea fx:id="languageList" editable="false" prefHeight="159.0" prefWidth="430.0" translateX="98.0" translateY="28.0" />
                     </children>
                 </TextFlow>
