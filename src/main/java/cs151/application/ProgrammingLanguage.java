@@ -30,7 +30,7 @@ public class ProgrammingLanguage {
             }
         }
 
-        // sorts alphabetically, slightly complicated but i wanted to avoid using any packages if possible - tony
+        // sorts alphabetically manually, to avoid using any packages if possible - tony
         for (int i = 0; i < list.length - 1; i++) {
             for (int j = 0; j < list.length - i - 1; j++) {
                 if (list[j].compareTo(list[j + 1]) > 0) {
