@@ -9,10 +9,6 @@ public class CSVParser {
     public static String filename;
     public static List<String> languages = new ArrayList<>();
 
-    //counter for data
-    private int index = 0;
-
-
     public CSVParser(String filename){
         CSVParser.filename = filename;
         try {

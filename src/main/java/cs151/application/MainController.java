@@ -11,8 +11,6 @@ import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.*;
 import javafx.event.*;
 import javafx.scene.control.TextField;
@@ -29,13 +27,6 @@ public class MainController {
     private TableView tableView;
     @FXML
     private TableColumn<String, String> languageColumn;
-
-    /*
-    public void initialize() {
-        stage = // get stage somehow
-        refreshLanguageList(stage);
-    }
-    */
 
     // change back to homepage
     @FXML
@@ -59,28 +50,8 @@ public class MainController {
         Faculty.setProgrammingLanguage(language);
 
         // Update the TextArea after adding
-        //refreshLanguageList(stage);
         refreshLanguageTable(stage);
     }
-
-//    @FXML
-//    private void refreshLanguageList(Stage stage) {
-//        try {
-//            TextArea languageList = (TextArea) stage.getScene().lookup("#languageList");
-//            if (languageList == null) {
-//                return;
-//            }
-//            StringBuilder sb = new StringBuilder();
-//            for (String lang : Faculty.getProgrammingLanguage()) {
-//                sb.append(lang.trim()).append("\n");
-//            }
-//            languageList.setText(sb.toString());
-//
-//        } catch (Exception e) {
-//             System.out.println(e);
-//             System.out.println("Language list could not be loaded");
-//        }
-//    }
 
     @FXML
     private void refreshLanguageTable(Stage stage) {
@@ -90,12 +61,12 @@ public class MainController {
             tableView.setItems(data);
 
             languageColumn = new TableColumn("Languages");
+            //sets the language column to update the value based on the return of names.getValue()
             languageColumn.setCellValueFactory(names -> new ReadOnlyStringWrapper(names.getValue()));
 
             tableView.getColumns().setAll(languageColumn);
 
         } catch (Exception e) {
-            //System.out.println(e);
             System.out.println("Language Table could not be loaded");
         }
     }
@@ -110,7 +81,6 @@ public class MainController {
 
             // Only for programminglanguage.fxml scene, update list if it exists
             if ("ProgrammingLanguage.fxml".equals(fxmlFile)) {
-                //refreshLanguageList(stage);
                 refreshLanguageTable(stage);
             }
         } catch (IOException e) {
