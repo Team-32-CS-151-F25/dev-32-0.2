@@ -109,7 +109,7 @@ public class MainController {
             stage.show();
 
             // Only for programminglanguage.fxml scene, update list if it exists
-            if (Faculty.getProgrammingLanguage() != null) {
+            if ("ProgrammingLanguage.fxml".equals(fxmlFile)) {
                 //refreshLanguageList(stage);
                 refreshLanguageTable(stage);
             }
