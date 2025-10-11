@@ -9,10 +9,6 @@ public class CSVParser {
     public static String filename;
     public static List<String> languages = new ArrayList<>();
 
-    //counter for data
-    private int index = 0;
-
-
     public CSVParser(String filename){
         CSVParser.filename = filename;
         try {
@@ -53,16 +49,14 @@ public class CSVParser {
         languages.add(data);
     }
 
-    /*
-    public String getData() {
-        String data = languages.get(this.index);
-        if(index < languages.size()) {
-            this.index++;
+    public String[] getData() {
+        String[] names = new String[languages.size()];
+        int count = 0;
+        for (String lang : languages) {
+            names[count++] = lang;
         }
-        return data;
+        return names;
     }
-
-     */
 
     public boolean exists(String value) {
         for (String lang : languages) {
