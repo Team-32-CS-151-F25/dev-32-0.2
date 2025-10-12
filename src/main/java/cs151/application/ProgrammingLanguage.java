@@ -1,6 +1,7 @@
 package cs151.application;
 
 import java.io.IOException;
+import java.util.*;
 
 public class ProgrammingLanguage {
     private final static String filename = "src/main/resources/cs151/application/languages.csv";
@@ -17,18 +18,8 @@ public class ProgrammingLanguage {
     }
 
     public static String[] format(String[] list) {
-
-        // capitalizes first letter of each language - tony
-        for (int i = 0; i < list.length; i++) {
-            if (list[i].length() > 0) {
-                String first = list[i].substring(0, 1).toUpperCase();
-                String rest = "";
-                if (list[i].length() > 1) {
-                    rest = list[i].substring(1).toLowerCase();
-                }
-                list[i] = first + rest;
-            }
-        }
+        List<String> names = Arrays.asList(list);
+        Collections.sort(names, String.CASE_INSENSITIVE_ORDER);
 
         // sorts alphabetically manually, to avoid using any packages if possible - tony
         for (int i = 0; i < list.length - 1; i++) {
