@@ -40,6 +40,12 @@ public class MainController {
         changeScene(event,"ProgrammingLanguage.fxml");
     }
 
+    //navigate to student profile page
+    @FXML
+    protected void onStudentProfileButtonClick(ActionEvent event){
+        changeScene(event, "StudentProfile.fxml");
+    }
+
     @FXML
     protected void onAddLanguageClick(ActionEvent event) throws IOException {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
