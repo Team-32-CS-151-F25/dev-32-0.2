@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,7 +27,7 @@
                 </ToolBar>
                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="632.0" text="Student Profile">
                     <font>
-                        <Font size="40.0" />
+                        <Font name="Avenir Roman" size="40.0" />
                     </font>
                 </Label>
             <VBox prefHeight="396.0" prefWidth="625.0">
@@ -152,7 +153,24 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="197.0" prefWidth="307.0" />
+                  <HBox prefHeight="197.0" prefWidth="307.0">
+                     <children>
+                        <VBox prefHeight="197.0" prefWidth="305.5" translateX="11.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="36.0" prefWidth="313.0" text="Faculty Evaluation">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextArea prefHeight="85.0" prefWidth="295.0" promptText="Your Answer Here" translateY="2.0" />
+                              <Button contentDisplay="CENTER" mnemonicParsing="false" text="Add comment" translateX="110.25" translateY="15.0">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children></HBox>
                </children>
             </VBox>
             </children>
