@@ -66,4 +66,12 @@ public class CSVParser {
         }
         return false;
     }
+
+    public void addNewLine() throws IOException {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, true))) {
+            if (!languages.isEmpty()) {
+                bw.write("\n"); // add new line to the csv file
+            }
+        }
+    }
 }
