@@ -43,6 +43,11 @@ public class MainController {
     //navigate to student profile page
     @FXML
     protected void onStudentProfileButtonClick(ActionEvent event){
+        changeScene(event, "profileMainPage.fxml");
+    }
+
+    @FXML
+    protected void onCreateNewProfileClick(ActionEvent event){
         changeScene(event, "studentProfile.fxml");
     }
 

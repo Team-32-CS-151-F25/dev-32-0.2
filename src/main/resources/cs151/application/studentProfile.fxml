@@ -157,7 +157,7 @@
                      <children>
                         <VBox prefHeight="197.0" prefWidth="305.5" translateX="11.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="36.0" prefWidth="313.0" text="Faculty Evaluation">
+                              <Label alignment="CENTER" prefHeight="52.0" prefWidth="306.0" text="Faculty Evaluation">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
