@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,7 +27,7 @@
                 </ToolBar>
                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="632.0" text="Student Profile">
                     <font>
-                        <Font size="40.0" />
+                        <Font name="Avenir Roman" size="40.0" />
                     </font>
                 </Label>
             <VBox prefHeight="396.0" prefWidth="625.0">
@@ -44,15 +45,15 @@
                                      <Text text="Full Name" translateX="31.0" translateY="20.0" wrappingWidth="47.76513671875" />
                                      <Text fill="red" text="*" translateX="31.0" translateY="20.0" />
                                      <Text text=":" translateX="35.0" translateY="20.0" />
-                                     <TextField fx:id="fullNameInput" alignment="CENTER" prefHeight="26.0" prefWidth="188.0" promptText="Enter here" translateX="40.0" translateY="20.0" />
+                                     <TextField fx:id="fullNameInput" alignment="CENTER" minHeight="-Infinity" prefHeight="21.0" prefWidth="188.0" promptText="Enter here" translateX="40.0" translateY="20.0" />
 
                                  </children></TextFlow>
-                              <TextFlow layoutX="10.0" layoutY="30.0" prefHeight="41.0" prefWidth="317.0">
+                              <TextFlow layoutX="10.0" layoutY="30.0" prefHeight="34.0" prefWidth="315.0">
                                  <children>
-                                    <Text text="Academic Status" translateX="31.0" translateY="15.0" wrappingWidth="47.76513671875" />
-                                    <Text fill="red" text="*" translateX="31.0" translateY="15.0" />
-                                    <Text text=":" translateX="35.0" translateY="15.0" />
-                                    <DropdownButton prefHeight="11.0" prefWidth="101.0" translateX="45.0" translateY="19.0">
+                                    <Text text="Academic Status" translateX="31.0" translateY="10.0" wrappingWidth="92.421875" />
+                                    <Text fill="red" text="*" translateX="31.0" translateY="10.0" />
+                                    <Text text=":" translateX="35.0" translateY="10.0" />
+                                    <DropdownButton prefHeight="11.0" prefWidth="101.0" translateX="45.0" translateY="14.0">
                                         <items>
                                             <MenuItem text="Freshman" />
                                             <MenuItem text="Sophomore" />
@@ -63,7 +64,7 @@
                                     </DropdownButton>
                                  </children>
                               </TextFlow>
-                              <TextFlow prefHeight="35.0" prefWidth="317.0">
+                              <TextFlow prefHeight="37.0" prefWidth="317.0">
                                  <children>
                                     <Text text="Current Job Status" translateX="31.0" translateY="10.0" wrappingWidth="47.76513671875" />
                                     <Text fill="red" text="*" translateX="31.0" translateY="10.0" />
@@ -102,14 +103,14 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextFlow prefHeight="24.0" prefWidth="317.0">
+                              <TextFlow prefHeight="24.0" prefWidth="317.0" translateY="16.0">
                                  <children>
                                     <Text text="Programming Languages Known" translateX="31.0" translateY="5.0" wrappingWidth="47.76513671875" />
                                     <Text fill="red" text="*" translateX="31.0" translateY="5.0" />
                                     <Text text=":" translateX="35.0" translateY="5.0" />
                                  </children>
                               </TextFlow>
-                              <TextFlow prefHeight="29.0" prefWidth="317.0">
+                              <TextFlow prefHeight="29.0" prefWidth="317.0" translateY="17.0">
                                  <children>
                                     <CheckBox mnemonicParsing="false" text="Java" translateX="36.0" translateY="4.0" />
                                     <CheckBox mnemonicParsing="false" text="Python" translateX="48.0" translateY="4.0" />
@@ -117,14 +118,14 @@
                                     <HBox prefHeight="1.0" prefWidth="172.0" />
                                  </children>
                               </TextFlow>
-                              <TextFlow prefHeight="24.0" prefWidth="317.0">
+                              <TextFlow prefHeight="24.0" prefWidth="317.0" translateY="22.0">
                                  <children>
                                     <Text text="Databases Known" translateX="31.0" translateY="5.0" wrappingWidth="47.76513671875" />
                                     <Text fill="red" text="*" translateX="31.0" translateY="5.0" />
                                     <Text text=":" translateX="35.0" translateY="5.0" />
                                  </children>
                               </TextFlow>
-                              <TextFlow prefHeight="29.0" prefWidth="317.0">
+                              <TextFlow prefHeight="29.0" prefWidth="317.0" translateY="20.0">
                                  <children>
                                     <CheckBox mnemonicParsing="false" text="MySQL" translateX="36.0" translateY="4.0" />
                                     <CheckBox mnemonicParsing="false" text="Postgress" translateX="48.0" translateY="4.0" />
@@ -132,7 +133,7 @@
                                     <HBox prefHeight="1.0" prefWidth="172.0" />
                                  </children>
                               </TextFlow>
-                              <TextFlow layoutX="10.0" layoutY="30.0" prefHeight="39.0" prefWidth="317.0">
+                              <TextFlow layoutX="10.0" layoutY="30.0" prefHeight="39.0" prefWidth="317.0" translateY="20.0">
                                  <children>
                                     <Text text="Preferred Professional Role" translateX="31.0" translateY="15.0" wrappingWidth="47.76513671875" />
                                     <Text fill="red" text="*" translateX="31.0" translateY="15.0" />
@@ -152,7 +153,47 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="197.0" prefWidth="307.0" />
+                  <HBox prefHeight="197.0" prefWidth="307.0">
+                     <children>
+                        <VBox prefHeight="197.0" prefWidth="305.5" translateX="11.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="36.0" prefWidth="313.0" text="Faculty Evaluation">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextArea minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="292.0" promptText="Your Answer Here" translateY="2.0" />
+                              <Button contentDisplay="CENTER" mnemonicParsing="false" text="Add comment" translateX="110.25" translateY="15.0">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="193.0" prefWidth="315.0" translateX="12.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" prefHeight="40.0" prefWidth="315.0" text="Future Services Flags">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextFlow prefHeight="32.0" prefWidth="276.0">
+                                 <children>
+                                    <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="33.0" prefWidth="61.0" text="Whitelist" translateX="80.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </CheckBox>
+                                    <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="33.0" prefWidth="59.0" text="Blacklist" translateX="100.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </CheckBox>
+                                 </children>
+                              </TextFlow>
+                           </children>
+                        </VBox>
+                     </children></HBox>
                </children>
             </VBox>
             </children>

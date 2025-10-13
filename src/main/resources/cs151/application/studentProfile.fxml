@@ -162,12 +162,35 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextArea prefHeight="85.0" prefWidth="295.0" promptText="Your Answer Here" translateY="2.0" />
+                              <TextArea minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="292.0" promptText="Your Answer Here" translateY="2.0" />
                               <Button contentDisplay="CENTER" mnemonicParsing="false" text="Add comment" translateX="110.25" translateY="15.0">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="193.0" prefWidth="315.0" translateX="12.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" prefHeight="40.0" prefWidth="315.0" text="Future Services Flags">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextFlow prefHeight="32.0" prefWidth="276.0">
+                                 <children>
+                                    <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="33.0" prefWidth="61.0" text="Whitelist" translateX="80.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </CheckBox>
+                                    <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="33.0" prefWidth="59.0" text="Blacklist" translateX="100.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </CheckBox>
+                                 </children>
+                              </TextFlow>
                            </children>
                         </VBox>
                      </children></HBox>
