@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<VBox alignment="CENTER" prefHeight="448.0" prefWidth="632.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
-    <children>
-        <VBox prefHeight="481.0" prefWidth="632.0" style="-fx-background-color: #93AEC4;">
+<AnchorPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
+   <children>
+        <VBox prefHeight="481.0" prefWidth="633.0" style="-fx-background-color: #93AEC4;">
             <children>
                   <ToolBar blendMode="COLOR_BURN" prefHeight="37.0" prefWidth="632.0">
                       <items>
                           <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
                       </items>
                   </ToolBar>
-                <TextFlow prefHeight="459.0" prefWidth="619.0">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="70.0" prefWidth="632.0" text="Programming Languages">
+                      <font>
+                          <Font size="40.0" />
+                      </font>
+                  </Label>
+                <TextFlow prefHeight="114.0" prefWidth="632.0" textAlignment="CENTER">
                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="632.0" text="Programming Languages">
-                            <font>
-                                <Font size="40.0" />
-                            </font>
-                        </Label><TextFlow layoutY="10.0" prefHeight="27.0" prefWidth="98.0" textAlignment="RIGHT">
-                        <Text text="Names" textAlignment="RIGHT" wrappingWidth="80.0" />
-                        <Text fill="red" text="*" textAlignment="RIGHT" />
-                        <Text text=":" textAlignment="RIGHT" />
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                    </TextFlow>
-                        <TextField fx:id="languageNameInput" prefHeight="20.0" prefWidth="347.0" promptText="Enter a programming language" translateX="11.0" translateY="17.0" />
-
-                        <Button mnemonicParsing="false" onAction="#onAddLanguageClick" prefHeight="26.0" prefWidth="45.0" text="Add" translateX="19.0" translateY="16.0" />
-                        <Label alignment="CENTER" prefHeight="44.0" prefWidth="234.0" text="Inputs:" translateX="-1.0" translateY="29.0" />
-                        <TextArea fx:id="languageList" editable="false" prefHeight="182.0" prefWidth="432.0" translateX="98.0" translateY="28.0" />
+                        <Text text="Names" translateX="-7.0" translateY="30.0" wrappingWidth="47.76513671875" />
+                        <Text fill="red" text="*" translateX="-7.0" translateY="30.0" />
+                        <Text text=":" translateX="-7.0" translateY="30.0" />
+                        <TextField fx:id="languageNameInput" prefHeight="26.0" prefWidth="255.0" promptText="Enter a programming language" translateX="0.0" translateY="31.0" />
+                        <Button mnemonicParsing="false" onAction="#onAddLanguageClick" prefHeight="26.0" prefWidth="45.0" text="Add" translateX="10.0" translateY="31.0" />
                     </children>
                 </TextFlow>
+            <TableView fx:id="table" maxWidth="430.0" prefHeight="224.0" prefWidth="430.0" translateX="98.0">
+              <columns>
+                <TableColumn fx:id="languageColumn" editable="false" maxWidth="430.0" minWidth="430.0" prefWidth="430.0" resizable="false" text="Inputs" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
             </children>
         </VBox>
-    </children>
-</VBox>
+   </children>
+</AnchorPane>
