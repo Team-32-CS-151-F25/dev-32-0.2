@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.ToolBar?>
+<?import com.gluonhq.charm.glisten.control.DropdownButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml" fx:controller="cs151.application.MainController">
+<AnchorPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
     <children>
         <VBox prefHeight="481.0" prefWidth="633.0" style="-fx-background-color: #93AEC4;">
             <children>
@@ -16,11 +23,82 @@
                         <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
                     </items>
                 </ToolBar>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="70.0" prefWidth="632.0" text="Student Profile">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="632.0" text="Student Profile">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Label>
+            <VBox prefHeight="396.0" prefWidth="625.0">
+               <children>
+                  <HBox prefHeight="197.0" prefWidth="633.0">
+                     <children>
+                        <VBox prefHeight="214.0" prefWidth="317.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="316.5" text="Basic Information">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font></Label>
+                              <TextFlow prefHeight="50.0" prefWidth="317.0">
+                                 <children>
+                                     <Text text="Full Name" translateX="31.0" translateY="20.0" wrappingWidth="47.76513671875" />
+                                     <Text fill="red" text="*" translateX="31.0" translateY="20.0" />
+                                     <Text text=":" translateX="35.0" translateY="20.0" />
+                                     <TextField fx:id="fullNameInput" alignment="CENTER" prefHeight="26.0" prefWidth="188.0" promptText="Enter here" translateX="40.0" translateY="20.0" />
+
+                                 </children></TextFlow>
+                              <TextFlow layoutX="10.0" layoutY="30.0" prefHeight="41.0" prefWidth="317.0">
+                                 <children>
+                                    <Text text="Academic Status" translateX="31.0" translateY="15.0" wrappingWidth="47.76513671875" />
+                                    <Text fill="red" text="*" translateX="31.0" translateY="15.0" />
+                                    <Text text=":" translateX="35.0" translateY="15.0" />
+                                    <DropdownButton prefHeight="11.0" prefWidth="101.0" translateX="45.0" translateY="19.0">
+                                        <items>
+                                            <MenuItem text="Freshman" />
+                                            <MenuItem text="Sophomore" />
+                                            <MenuItem text="Junior" />
+                                            <MenuItem text="Senior" />
+                                            <MenuItem text="Graduate" />
+                                        </items>
+                                    </DropdownButton>
+                                 </children>
+                              </TextFlow>
+                              <TextFlow prefHeight="35.0" prefWidth="317.0">
+                                 <children>
+                                    <Text text="Current Job Status" translateX="31.0" translateY="10.0" wrappingWidth="47.76513671875" />
+                                    <Text fill="red" text="*" translateX="31.0" translateY="10.0" />
+                                    <Text text=":" translateX="35.0" translateY="10.0" />
+                                    <RadioButton mnemonicParsing="false" text="Employed" translateX="39.0" translateY="8.0">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="Not Employed" translateX="44.0" translateY="8.0">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </RadioButton>
+                                 </children>
+                              </TextFlow>
+                              <TextFlow prefHeight="50.0" prefWidth="317.0">
+                                 <children>
+                                    <Text text="Job Details" translateX="31.0" wrappingWidth="210.29248046875" />
+                                    <Text fill="red" text="(Required if employed)" translateX="33.0">
+                                       <font>
+                                          <Font size="8.0" />
+                                       </font>
+                                    </Text>
+                                    <Text text=":" translateX="35.0" />
+                                    <TextField fx:id="fullNameInput1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="177.0" promptText="Enter here" translateX="-105.0" translateY="22.0" />
+                                 </children>
+                              </TextFlow>
+
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="197.0" prefWidth="307.0" />
+               </children>
+            </VBox>
             </children>
         </VBox>
     </children>

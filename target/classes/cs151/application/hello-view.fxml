@@ -11,8 +11,8 @@
 
 <AnchorPane prefHeight="363.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
    <children>
-      <VBox prefHeight="448.0" prefWidth="592.0" style="-fx-background-color: #93AEC4;">
-         <children>
+      <VBox prefHeight="481.0" prefWidth="633.0" style="-fx-background-color: #93AEC4;">
+          <children>
             <ToolBar blendMode="COLOR_BURN" prefHeight="37.0" prefWidth="591.0">
               <items>
                 <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
