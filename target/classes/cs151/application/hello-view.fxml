@@ -19,7 +19,7 @@
               </items>
             </ToolBar>
              <HBox prefHeight="300.0" prefWidth="300.0" />
-             <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="383.0" prefWidth="591.0" text="STUDENT HUB">
+             <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="342.0" prefWidth="633.0" text="STUDENT HUB">
                   <font>
                       <Font size="40.0" />
                   </font>
