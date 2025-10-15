@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
     <children>
         <VBox prefHeight="481.0" prefWidth="633.0" style="-fx-background-color: #93AEC4;">
             <children>
@@ -31,7 +31,7 @@
                   </VBox>
                   <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="316.5">
                      <children>
-                        <Button mnemonicParsing="false" text="Go to existing Profile" translateX="92.0" translateY="160.0" />
+                        <Button mnemonicParsing="false" onAction="#onExistingProfileClick" text="Go to existing Profile" translateX="92.0" translateY="160.0" />
                      </children>
                   </VBox>
                </children>
