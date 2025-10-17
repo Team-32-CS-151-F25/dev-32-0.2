@@ -1,6 +1,8 @@
 package cs151.application;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class StudentProfile {
     private static final CSVParser profileParser = new CSVParser("src/main/resources/cs151/application/studentsProfile.csv");
@@ -20,7 +22,7 @@ public class StudentProfile {
         profileParser.setData(jobStatus);
     }
     public static void setJobDetails(String jobDetails) throws IOException {
-        if(jobDetails.equals("")) {
+        if(jobDetails.isEmpty()) {
             profileParser.setData("N/A");
         }else
             profileParser.setData(jobDetails);
@@ -61,9 +63,24 @@ public class StudentProfile {
         public static void setEvaluation(String evaluation) throws IOException {
             //need to check if the student name already exists,
             // if there are prior evaluations and then add the data
-            evaluationParser.setData(studentName);
-            evaluationParser.setData(evaluation);
-            evaluationParser.addNewLine();
+            String[] evaluations;
+            ArrayList<String> names =  new ArrayList<>();
+            //get all the names of the students who have an evaluation
+            while ((evaluations = evaluationParser.getLineArray()) != null){
+                names.add(evaluations[0]);
+            }
+            //the index of student Name will correspond to the line the student evaluation is stored in
+            if (names.contains(studentName)) {
+                int lineNum = names.indexOf(studentName);
+                evaluationParser.updateLine(LocalDateTime.now().toString(),lineNum,1);
+                evaluationParser.updateLine(evaluation,lineNum,1);
+
+            }else {
+                evaluationParser.setData(studentName);
+                evaluationParser.setData(evaluation);
+                evaluationParser.setData(LocalDateTime.now().toString());
+                evaluationParser.addNewLine();
+            }
         }
     }
 

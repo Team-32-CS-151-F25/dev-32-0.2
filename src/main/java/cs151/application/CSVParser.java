@@ -10,24 +10,17 @@ public class CSVParser {
     private Boolean newLine = true;
     private BufferedReader br;
 
-    {
-        try {
-            br = new BufferedReader(new FileReader(filename));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public CSVParser(String filename){
         this.filename = filename;
         try {
             readFile(filename);
+            br = new BufferedReader(new FileReader(filename));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void readFile(String filename) throws IOException {
+    private void readFile(String filename) throws IOException {
         data.clear(); //  prevent duplicates when reloading scenes
 
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
@@ -75,6 +68,64 @@ public class CSVParser {
     public String getLine() throws IOException {
         return br.readLine();
     }
+
+
+    public void updateLine(String text, int lineNum, int addIndex)  {
+        List<List<String>> fileData;
+
+        try {
+            fileData = getFileData();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        //get the row to update
+        List<String> row = fileData.get(lineNum);
+
+        if (addIndex < 0 || addIndex > row.size()) {throw new IndexOutOfBoundsException("Add Index out of bounds");}
+        //if the add index is greater than size then add at end
+        if (addIndex == row.size()) {
+            row.add(text);
+        }else {
+
+            row.add(addIndex, text); //add the data
+        }
+
+        //write all the data back the csv file
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, false));){
+            for (int i = 0; i < fileData.size(); i++) {
+                StringBuilder sb = new StringBuilder();
+                for (int j = 0; j < fileData.get(i).size(); j++) {
+                    sb.append(fileData.get(i).get(j));
+                    if (j != fileData.get(i).size() - 1) {
+                        sb.append(",");
+                    }
+                }
+                bw.write(sb.toString());
+                bw.newLine();
+                newLine = true;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private List<List<String>> getFileData() throws IOException {
+        List<List<String>> fileData = new ArrayList<>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            String line;
+            while ((line = br.readLine()) != null){
+                String[] lineData = line.split(",");
+                List<String> row = new ArrayList<>();
+                for(String data : lineData){ row.add(data);}
+                fileData.add(row);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return fileData;
+    }
+
     
     public String[] getLineArray() throws IOException {
         String line;
@@ -87,9 +138,12 @@ public class CSVParser {
                     lineArray.add(trimmed);
                 }
             }
+        }else{
+            return null;
         }
         return lineArray.toArray(new String[0]);
     }
+
 
     public boolean exists(String value) {
         for (String lang : data) {
