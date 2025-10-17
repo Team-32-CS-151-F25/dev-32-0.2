@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.DropdownButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -96,54 +95,37 @@
                         </VBox>
                         <VBox layoutX="10.0" layoutY="10.0" prefHeight="214.0" prefWidth="317.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="316.5" text="Skills and Interests">
+                              <Label alignment="CENTER" prefHeight="15.0" prefWidth="317.0" text="Skills and Interests">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextFlow prefHeight="24.0" prefWidth="317.0" translateY="16.0">
+                              <TextFlow prefHeight="27.0" prefWidth="317.0" translateY="16.0">
                                  <children>
-                                    <Text text="Programming Languages Known" translateX="31.0" translateY="5.0" wrappingWidth="47.76513671875" />
+                                    <Text text="Programming Languages Known" translateX="31.0" translateY="5.0" wrappingWidth="177.20751953125" />
                                     <Text fill="red" text="*" translateX="31.0" translateY="5.0" />
                                     <Text text=":" translateX="35.0" translateY="5.0" />
                                  </children>
                               </TextFlow>
-                              <TextFlow prefHeight="29.0" prefWidth="317.0" translateY="17.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" text="Java" translateX="36.0" translateY="4.0" />
-                                    <CheckBox mnemonicParsing="false" text="Python" translateX="48.0" translateY="4.0" />
-                                    <HBox prefHeight="1.0" prefWidth="172.0" />
-                                 </children>
-                              </TextFlow>
-                              <TextFlow prefHeight="24.0" prefWidth="317.0" translateY="22.0">
+                              <ListView fx:id="programmingLanguages" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="278.0" translateX="20.0" translateY="15.0" />
+                              <TextFlow prefHeight="11.0" prefWidth="317.0" translateY="22.0">
                                  <children>
                                     <Text text="Databases Known" translateX="31.0" translateY="5.0" wrappingWidth="47.76513671875" />
                                     <Text fill="red" text="*" translateX="31.0" translateY="5.0" />
                                     <Text text=":" translateX="35.0" translateY="5.0" />
                                  </children>
                               </TextFlow>
-                              <TextFlow prefHeight="29.0" prefWidth="317.0" translateY="20.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" text="MySQL" translateX="36.0" translateY="4.0" />
-                                    <CheckBox mnemonicParsing="false" text="Postgress" translateX="48.0" translateY="4.0" />
-                                    <CheckBox mnemonicParsing="false" text="MongoDB" translateX="60.0" translateY="4.0" />
-                                    <HBox prefHeight="1.0" prefWidth="172.0" />
-                                 </children>
-                              </TextFlow>
-                              <TextFlow layoutX="10.0" layoutY="30.0" prefHeight="39.0" prefWidth="317.0" translateY="20.0">
+                              <ListView fx:id="databaseList" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="278.0" translateX="20.0" translateY="25.0" />
+                              <TextFlow layoutX="10.0" layoutY="30.0" prefHeight="54.0" prefWidth="317.0" translateY="20.0">
                                  <children>
                                     <Text text="Preferred Professional Role" translateX="31.0" translateY="15.0" wrappingWidth="47.76513671875" />
                                     <Text fill="red" text="*" translateX="31.0" translateY="15.0" />
                                     <Text text=":" translateX="35.0" translateY="15.0" />
-                                    <DropdownButton prefHeight="11.0" prefWidth="101.0" translateX="45.0" translateY="19.0">
-                                       <items>
-                                          <MenuItem text="Front-End" />
-                                          <MenuItem text="Back-End" />
-                                          <MenuItem text="Full-Stack" />
-                                          <MenuItem text="Data" />
-                                          <MenuItem text="Other" />
-                                       </items>
-                                    </DropdownButton>
+                                    <ChoiceBox fx:id="professionChoiceBox" prefHeight="22.0" prefWidth="104.0" translateX="40.0" translateY="9.0">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </ChoiceBox>
                                  </children>
                               </TextFlow>
                            </children>
@@ -159,8 +141,8 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextArea minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="292.0" promptText="Your Answer Here" translateY="2.0" />
-                              <Button contentDisplay="CENTER" mnemonicParsing="false" text="Add comment" translateX="110.25" translateY="15.0">
+                              <TextArea fx:id="studentEvaluationArea" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="292.0" promptText="Your Answer Here" translateY="2.0" />
+                              <Button fx:id="addComment" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddCommentButton" text="Add comment" translateX="110.25" translateY="15.0">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
