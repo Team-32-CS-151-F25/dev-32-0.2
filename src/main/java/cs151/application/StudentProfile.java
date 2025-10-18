@@ -102,6 +102,10 @@ public class StudentProfile {
         private static final CSVParser flagParser = new CSVParser("src/main/resources/cs151/application/flags.csv");
         //  ADD A CHECK FOR EXISTING DATA AND UPDATE THE NEW VALUE -> NEEDS UPDATE BEFORE IT WORS
         public static void setFlag(String flag) throws IOException {
+            ArrayList<String> names = flagParser.getFirstValues();
+            if(names.contains(studentName)){
+                flagParser.updateLine(flag,names.indexOf(studentName),1);
+            }
             flagParser.setData(studentName);
             flagParser.setData(flag);
             flagParser.addNewLine();

@@ -36,15 +36,15 @@ public class StudentProfileController {
     private ToggleGroup jobStatus;
 
 
-    private String studentName;
-    private String academicStatus;
-    private String employmentStatus;
+    private String studentName = "";
+    private String academicStatus = "";
+    private String employmentStatus = "";
     private String jobDetails = "N/A";
-    private String studentEvaluation;
+    private String studentEvaluation = "";
     private ArrayList<String> programmingLang = new ArrayList<>();
     private ArrayList<String> databaseKnown = new ArrayList<>();
-    private String preferredRole;
-    private String flag;
+    private String preferredRole = "";
+    private String flag = "";
 
 
     @FXML
@@ -135,8 +135,10 @@ public class StudentProfileController {
         // studentEvaluation flags
 
         //get the student name from the textField
-        this.studentName = nameTextField.getText();
-        this.studentName = studentName.trim();  //trim to remove leading and trailing whitespaces
+        if(!nameTextField.getText().isEmpty()) {
+            this.studentName = nameTextField.getText();
+            this.studentName = studentName.trim();  //trim to remove leading and trailing whitespaces
+        }
 
         //academicStatus is added on initialize method and updates automatically with every selection
 
@@ -209,13 +211,17 @@ public class StudentProfileController {
         //once user has added all the required values then add the data to the respective files
 
         try {
-            if(!Faculty.matchName(studentName.trim())){
-            Faculty.setStudentProfile(studentName,academicStatus,employmentStatus,jobDetails);
-            Faculty.setStudentSkills(programmingLang.toArray(new String[0]), databaseKnown.toArray(new String[0]), preferredRole);
-            Faculty.setStudentEval(studentEvaluation);
-            Faculty.setStudentFlag(flag);}
-            else
-                showAlert("Duplicate Data", "Student Name Already Exists");
+            if( !studentName.isEmpty() && !academicStatus.isEmpty() && !employmentStatus.isEmpty()
+                    && !programmingLang.isEmpty() && !databaseKnown.isEmpty() && !preferredRole.isEmpty()) {
+                if (!Faculty.matchName(studentName.trim())) {
+                    Faculty.setStudentProfile(studentName, academicStatus, employmentStatus, jobDetails);
+                    Faculty.setStudentSkills(programmingLang.toArray(new String[0]), databaseKnown.toArray(new String[0]), preferredRole);
+                    Faculty.setStudentEval(studentEvaluation);
+                    //need to update the code for faculty to change flags
+                    Faculty.setStudentFlag(flag);
+                } else
+                    showAlert("Duplicate Data", "Student Name Already Exists");
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -240,6 +246,8 @@ public class StudentProfileController {
     private void onAddCommentButton(){
 //        this.studentEvaluation = studentEvaluationArea.getText();
 //        System.out.println("Student evaluation is " + studentEvaluation);
+
+        //Faculty needs to be able to add commments later on as well
     }
 
 
@@ -252,7 +260,7 @@ public class StudentProfileController {
         //shows a alert to user using javafx Alert class
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(title);
-        alert.setHeaderText("Required Field is Missing");
+        alert.setHeaderText("");
         alert.setContentText(message);
         alert.showAndWait();
     }
