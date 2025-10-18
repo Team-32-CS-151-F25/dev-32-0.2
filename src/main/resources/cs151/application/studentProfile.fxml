@@ -158,12 +158,12 @@
                               </Label>
                               <TextFlow prefHeight="32.0" prefWidth="276.0">
                                  <children>
-                                    <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="33.0" prefWidth="61.0" text="Whitelist" translateX="80.0">
+                                    <CheckBox fx:id="whitelist" alignment="CENTER" mnemonicParsing="false" prefHeight="33.0" prefWidth="61.0" text="Whitelist" translateX="80.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font>
                                     </CheckBox>
-                                    <CheckBox alignment="CENTER" mnemonicParsing="false" prefHeight="33.0" prefWidth="59.0" text="Blacklist" translateX="100.0">
+                                    <CheckBox fx:id="blacklist" alignment="CENTER" mnemonicParsing="false" prefHeight="33.0" prefWidth="59.0" text="Blacklist" translateX="100.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font>

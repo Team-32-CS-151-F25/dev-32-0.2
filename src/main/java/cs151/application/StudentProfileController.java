@@ -25,6 +25,8 @@ public class StudentProfileController {
     @FXML private RadioButton unemployed;
     @FXML private Button addStudentButton;
     @FXML private Button addComment;
+    @FXML private CheckBox whitelist;
+    @FXML private CheckBox blacklist;
     @FXML private TextArea studentEvaluationArea;
     @FXML private ListView<CheckBox> programmingLanguages;
     @FXML private ListView<CheckBox> databaseList;;
@@ -41,7 +43,6 @@ public class StudentProfileController {
     private List<CheckBox> languages;
     private List<CheckBox> database;
     private ToggleGroup jobStatus;
-    private ToggleGroup flags;
 
 
     @FXML
@@ -73,8 +74,16 @@ public class StudentProfileController {
         employed.setToggleGroup(jobStatus);
         unemployed.setToggleGroup(jobStatus);
 
-        flags = new ToggleGroup();
 
+        whitelist.setOnAction(event -> {
+            if(whitelist.isSelected())
+            {blacklist.setSelected(false);}
+        });
+        blacklist.setOnAction(event -> {
+            if(blacklist.isSelected()){
+                whitelist.setSelected(false);
+            }
+        });
 
         jobDetailsTextField.setDisable(true);
 
