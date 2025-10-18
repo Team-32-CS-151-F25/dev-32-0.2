@@ -89,10 +89,16 @@ public class MainController {
 
     protected void changeScene(ActionEvent event, String fxmlFile) {
         try {
+
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // window size - tony
+            double currentWidth = stage.getWidth();
+            double currentHeight = stage.getHeight();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(root, currentWidth, currentHeight));
             stage.show();
 
             // Only for programminglanguage.fxml scene, update list if it exists

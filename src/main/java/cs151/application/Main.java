@@ -12,9 +12,16 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Student Hub");
         stage.setScene(scene);
+
+        // sets min window size
+        stage.setMinWidth(300);
+        stage.setMinHeight(200);
+        //stage.setMaxWidth(1200);
+        //stage.setMaxHeight(900);
+
         stage.show();
     }
 
