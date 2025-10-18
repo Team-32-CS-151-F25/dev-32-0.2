@@ -30,6 +30,19 @@ public class StudentProfile {
     public static void newData() throws IOException {
         profileParser.addNewLine();
     }
+
+    public static boolean checkName(String name){
+        boolean found = false;
+        try {
+            ArrayList<String> names = profileParser.getFirstValues();
+            if (names.contains(name))
+                found = true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return found;
+    }
     // Each of the below will add to their own csv file with Name as the identifier
     //method to add skills
     static class Skills {
@@ -87,13 +100,15 @@ public class StudentProfile {
     //method to add flags
     static class Flags {
         private static final CSVParser flagParser = new CSVParser("src/main/resources/cs151/application/flags.csv");
-
+        //  ADD A CHECK FOR EXISTING DATA AND UPDATE THE NEW VALUE -> NEEDS UPDATE BEFORE IT WORS
         public static void setFlag(String flag) throws IOException {
             flagParser.setData(studentName);
             flagParser.setData(flag);
             flagParser.addNewLine();
         }
     }
+
+
 
 
 

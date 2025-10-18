@@ -34,4 +34,8 @@ public class Faculty {
         StudentProfile.Skills.setDatabases(databases);
         StudentProfile.Skills.setRole(role);
     }
+
+    public static boolean matchName(String name) throws IOException {
+        return StudentProfile.checkName(name);
+    }
 }

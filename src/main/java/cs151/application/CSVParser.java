@@ -160,4 +160,18 @@ public class CSVParser {
                 newLine = true;
         }
     }
+
+    public ArrayList<String> getFirstValues() throws IOException {
+        ArrayList<String> firstValues = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data.length > 1) {
+                    firstValues.add(data[0]);
+                }
+            }
+        }
+        return firstValues;
+    }
 }
