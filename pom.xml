@@ -9,6 +9,13 @@
     <version>1.0-SNAPSHOT</version>
     <name>HelloWorld</name>
 
+    <repositories>
+        <repository>
+            <id>gluon-releases</id>
+            <url>https://nexus.gluonhq.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.2</junit.version>
@@ -48,6 +55,12 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+                <groupId>com.gluonhq</groupId>
+                <artifactId>charm-glisten</artifactId>
+                <version>6.2.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
