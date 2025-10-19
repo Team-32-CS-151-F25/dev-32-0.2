@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="363.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
+<AnchorPane prefHeight="363.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
    <children>
-      <VBox prefHeight="481.0" prefWidth="633.0" style="-fx-background-color: #93AEC4;">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.1" prefWidth="696.3" style="-fx-background-color: #93AEC4;">
           <children>
             <ToolBar blendMode="COLOR_BURN" prefHeight="37.0" prefWidth="591.0">
               <items>
@@ -19,7 +19,7 @@
               </items>
             </ToolBar>
              <HBox prefHeight="300.0" prefWidth="300.0" />
-             <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="342.0" prefWidth="633.0" text="STUDENT HUB">
+             <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="112.0" prefWidth="696.0" text="STUDENT HUB" translateY="-105.0">
                   <font>
                       <Font size="40.0" />
                   </font>
