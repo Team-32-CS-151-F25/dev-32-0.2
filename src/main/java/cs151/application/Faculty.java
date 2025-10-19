@@ -1,6 +1,7 @@
 package cs151.application;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Faculty {
 
@@ -38,4 +39,21 @@ public class Faculty {
     public static boolean matchName(String name) throws IOException {
         return StudentProfile.checkName(name);
     }
+
+    public static List<List<String>> getStudentProfileRecord(){
+        return StudentProfile.getAllData();
+    }
+
+    public static List<List<String>> getStudentSkillsRecord(){
+        return StudentProfile.Skills.getAllData();
+    }
+
+    public static List<List<String>> getStudentEvaluationRecord(){
+        return StudentProfile.Evaluation.getAllData();
+    }
+
+    public static List<List<String>> getStudentFlagsRecord(){
+        return StudentProfile.Flags.getAllData();
+    }
+
 }

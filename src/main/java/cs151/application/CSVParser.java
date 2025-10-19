@@ -2,6 +2,7 @@ package cs151.application;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CSVParser {
@@ -14,6 +15,8 @@ public class CSVParser {
         this.filename = filename;
         try {
             readFile(filename);
+            //newline was causing issues for programming language for some reason
+            if (filename == "src/main/resources/cs151/application/languages.csv") {newLine = false;}
             br = new BufferedReader(new FileReader(filename));
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -47,7 +50,7 @@ public class CSVParser {
                 }
         */
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, true))) {
-            if (!CSVParser.data.isEmpty() && !newLine) {
+            if (!this.data.isEmpty() && !newLine) {
                 bw.write(","); // no comma on first entry
             }
             bw.write(data);
@@ -57,16 +60,31 @@ public class CSVParser {
     }
 
     public String[] getData() {
-        String[] names = new String[data.size()];
-        int count = 0;
-        for (String lang : data) {
-            names[count++] = lang;
+
+        ArrayList<String> names = new ArrayList<>();
+        String line;
+        try {
+            BufferedReader br = new BufferedReader( new FileReader(filename));
+            while((line = br.readLine()) != null){
+                String[] data = line.split(",");
+                for (String d : data) {
+                     names.add(d.trim());
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        return names;
+        return names.toArray(new String[0]);
     }
 
-    public String getLine() throws IOException {
-        return br.readLine();
+    public String getLine() {
+        try {
+            return br.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -109,7 +127,7 @@ public class CSVParser {
         }
     }
 
-    private List<List<String>> getFileData() throws IOException {
+    public List<List<String>> getFileData() throws IOException {
         List<List<String>> fileData = new ArrayList<>();
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));

@@ -3,6 +3,7 @@ package cs151.application;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentProfile {
     private static final CSVParser profileParser = new CSVParser("src/main/resources/cs151/application/studentsProfile.csv");
@@ -43,6 +44,16 @@ public class StudentProfile {
 
         return found;
     }
+
+    public static List<List<String>> getAllData() {
+        List<List<String>> allData = new ArrayList<>();
+        try {
+            allData = profileParser.getFileData();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return allData;
+    }
     // Each of the below will add to their own csv file with Name as the identifier
     //method to add skills
     static class Skills {
@@ -66,6 +77,16 @@ public class StudentProfile {
             skillParser.setData("Role");
             skillParser.setData(role);
             skillParser.addNewLine();
+        }
+
+        public static List<List<String>> getAllData() {
+            List<List<String>> allData = new ArrayList<>();
+            try {
+                allData = skillParser.getFileData();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return allData;
         }
     }
 
@@ -95,6 +116,16 @@ public class StudentProfile {
                 evaluationParser.addNewLine();
             }
         }
+
+        public static List<List<String>> getAllData() {
+            List<List<String>> allData = new ArrayList<>();
+            try {
+                allData = evaluationParser.getFileData();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return allData;
+        }
     }
 
     //method to add flags
@@ -109,6 +140,16 @@ public class StudentProfile {
             flagParser.setData(studentName);
             flagParser.setData(flag);
             flagParser.addNewLine();
+        }
+
+        public static List<List<String>> getAllData() {
+            List<List<String>> allData = new ArrayList<>();
+            try {
+                allData = flagParser.getFileData();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return allData;
         }
     }
 
