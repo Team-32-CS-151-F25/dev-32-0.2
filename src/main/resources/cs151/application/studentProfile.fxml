@@ -19,25 +19,25 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.StudentProfileController">
     <children>
-        <VBox prefHeight="481.0" prefWidth="633.0" style="-fx-background-color: #93AEC4;">
+        <VBox prefHeight="529.1" prefWidth="696.3" style="-fx-background-color: #93AEC4;">
             <children>
-                <ToolBar blendMode="COLOR_BURN" prefHeight="37.0" prefWidth="632.0">
+                <ToolBar blendMode="COLOR_BURN" prefHeight="37.0" prefWidth="696.3">
                     <items>
                         <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
                     </items>
                 </ToolBar>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="632.0" text="Create a Student Profile">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="59.0" prefWidth="696.3" text="Create a Student Profile">
                     <font>
                         <Font name="Avenir Roman" size="40.0" />
                     </font>
                 </Label>
-            <VBox prefHeight="396.0" prefWidth="625.0">
+            <VBox prefHeight="434.0" prefWidth="697.0">
                <children>
-                  <HBox prefHeight="197.0" prefWidth="633.0">
+                  <HBox prefHeight="237.0" prefWidth="696.3">
                      <children>
-                        <VBox prefHeight="214.0" prefWidth="317.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="348.15" translateX="10.0" translateY="7.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="316.5" text="Basic Information">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="348.15" text="Basic Information">
                                  <font>
                                     <Font size="16.0" />
                                  </font></Label>
@@ -87,35 +87,35 @@
                                        </font>
                                     </Text>
                                     <Text text=":" translateX="35.0" />
-                                    <TextField fx:id="jobDetailsTextField" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#onJobDetailsEntered" prefHeight="20.0" prefWidth="177.0" promptText="Enter here" translateX="-105.0" translateY="22.0" />
+                                    <TextField fx:id="jobDetailsTextField" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#onJobDetailsEntered" prefHeight="20.0" prefWidth="207.0" promptText="Enter here" translateX="-105.0" translateY="22.0" />
                                  </children>
                               </TextFlow>
 
                            </children>
                         </VBox>
-                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="214.0" prefWidth="317.0">
+                        <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="234.0" prefWidth="348.15">
                            <children>
-                              <Label alignment="CENTER" prefHeight="15.0" prefWidth="317.0" text="Skills and Interests">
+                              <Label alignment="CENTER" prefHeight="15.0" prefWidth="348.15" text="Skills and Interests">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextFlow prefHeight="27.0" prefWidth="317.0" translateY="16.0">
+                              <TextFlow prefHeight="27.0" prefWidth="317.0" translateY="7.0">
                                  <children>
                                     <Text text="Programming Languages Known" translateX="31.0" translateY="5.0" wrappingWidth="177.20751953125" />
                                     <Text fill="red" text="*" translateX="31.0" translateY="5.0" />
                                     <Text text=":" translateX="35.0" translateY="5.0" />
                                  </children>
                               </TextFlow>
-                              <ListView fx:id="programmingLanguages" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="278.0" translateX="20.0" translateY="15.0" />
-                              <TextFlow prefHeight="11.0" prefWidth="317.0" translateY="22.0">
+                              <ListView fx:id="programmingLanguages" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="300.0" translateX="20.0" translateY="15.0" />
+                              <TextFlow prefHeight="11.0" prefWidth="317.0" translateY="16.0">
                                  <children>
                                     <Text text="Databases Known" translateX="31.0" translateY="5.0" wrappingWidth="47.76513671875" />
                                     <Text fill="red" text="*" translateX="31.0" translateY="5.0" />
                                     <Text text=":" translateX="35.0" translateY="5.0" />
                                  </children>
                               </TextFlow>
-                              <ListView fx:id="databaseList" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="278.0" translateX="20.0" translateY="25.0" />
+                              <ListView fx:id="databaseList" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="301.0" translateX="20.0" translateY="25.0" />
                               <TextFlow layoutX="10.0" layoutY="30.0" prefHeight="54.0" prefWidth="317.0" translateY="20.0">
                                  <children>
                                     <Text text="Preferred Professional Role" translateX="31.0" translateY="15.0" wrappingWidth="47.76513671875" />
@@ -132,26 +132,26 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="197.0" prefWidth="307.0">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="187.0" prefWidth="696.3" translateY="10.0">
                      <children>
-                        <VBox prefHeight="197.0" prefWidth="305.5" translateX="11.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="317.15" translateX="18.0" translateY="23.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="52.0" prefWidth="306.0" text="Faculty Evaluation">
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="318.0" text="Faculty Evaluation">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="studentEvaluationArea" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="292.0" promptText="Your Answer Here" translateY="2.0" />
-                              <Button fx:id="addComment" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddCommentButton" text="Add comment" translateX="110.25" translateY="15.0">
+                              <TextArea fx:id="studentEvaluationArea" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="292.0" promptText="Your Answer Here" />
+                              <Button fx:id="addComment" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddCommentButton" text="Add comment" translateX="122.25" translateY="10.0">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </Button>
                            </children>
                         </VBox>
-                        <VBox prefHeight="193.0" prefWidth="315.0" translateX="12.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="315.0" translateX="45.0" translateY="25.0">
                            <children>
-                              <Label alignment="BOTTOM_CENTER" prefHeight="40.0" prefWidth="315.0" text="Future Services Flags">
+                              <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="315.0" text="Future Services Flags">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
