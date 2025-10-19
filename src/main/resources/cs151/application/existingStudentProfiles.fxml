@@ -24,7 +24,7 @@
                         <Font name="Avenir Roman" size="40.0" />
                     </font>
                 </Label>
-                <TableView fx:id="studentTableView" maxWidth="632.0" prefHeight="434.0" prefWidth="632.0">
+                <TableView fx:id="studentTableView" maxWidth="683.0" prefHeight="394.0" prefWidth="683.0">
                     <columns>
                         <TableColumn fx:id="studentNameColumn" editable="false" maxWidth="430.0" minWidth="101.0" prefWidth="101.0" text="Student Name" />
                   <TableColumn fx:id="academicStatusColumn" prefWidth="95.5" text="Academic Status" />
