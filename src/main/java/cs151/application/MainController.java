@@ -55,7 +55,7 @@ public class MainController {
     protected void onExistingProfileClick(ActionEvent event){
         changeScene(event, "existingStudentProfiles.fxml");
     }
-//changes
+
     @FXML
     protected void onAddLanguageClick(ActionEvent event) throws IOException {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
