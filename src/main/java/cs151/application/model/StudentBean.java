@@ -1,6 +1,6 @@
-package cs151.application;
+package cs151.application.model;
 
-public class Student {
+public class StudentBean {
     private String name;
     private String academicStatus;
     private String jobStatus;
@@ -11,9 +11,9 @@ public class Student {
     private String flags;
     private String evaluation;
 
-    public Student(String name, String academicStatus, String jobStatus,
-                   String jobDetails, String programmingLang, String databases,
-                   String preferredRole, String flags, String evaluation) {
+    public StudentBean(String name, String academicStatus, String jobStatus,
+                       String jobDetails, String programmingLang, String databases,
+                       String preferredRole, String flags, String evaluation) {
         this.name = name;
         this.academicStatus = academicStatus;
         this.jobStatus = jobStatus;

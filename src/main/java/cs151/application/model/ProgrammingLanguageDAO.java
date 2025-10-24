@@ -1,11 +1,11 @@
-package cs151.application;
+package cs151.application.model;
 
 import java.io.IOException;
 import java.util.*;
 
-public class ProgrammingLanguage {
-    private final static String filename = "src/main/resources/cs151/application/languages.csv";
-    private static final CSVParser lnaguageParser = new CSVParser(filename);
+public class ProgrammingLanguageDAO {
+    private final static String filename = "src/main/resources/data/languages.csv";
+    private static final CSVHandler lnaguageParser = new CSVHandler(filename);
 
     public static void setLanguage(String language) throws IOException {
         if (!language.isEmpty() && !lnaguageParser.exists(language)) {
@@ -16,6 +16,7 @@ public class ProgrammingLanguage {
     public static String[] getLanguage() {
         return format(lnaguageParser.getData());
     }
+    //needs to return a list of programming language bean
 
     public static String[] format(String[] list) {
         List<String> names = Arrays.asList(list);

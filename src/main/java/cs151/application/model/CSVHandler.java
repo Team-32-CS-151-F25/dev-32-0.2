@@ -1,22 +1,21 @@
-package cs151.application;
+package cs151.application.model;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class CSVParser {
+public class CSVHandler {
     private String filename;
     public static List<String> data = new ArrayList<>();
     private Boolean newLine = true;
     private BufferedReader br;
 
-    public CSVParser(String filename){
+    public CSVHandler(String filename){
         this.filename = filename;
         try {
             readFile(filename);
             //newline was causing issues for programming language for some reason
-            if (filename == "src/main/resources/cs151/application/languages.csv") {newLine = false;}
+            if (filename == "src/main/resources/data/languages.csv") {newLine = false;}
             br = new BufferedReader(new FileReader(filename));
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -33,7 +32,7 @@ public class CSVParser {
                 for (String d : data) {
                     String trimmed = d.trim();
                     if (!trimmed.isEmpty()) {
-                        CSVParser.data.add(trimmed);
+                        CSVHandler.data.add(trimmed);
                     }
                 }
             }
@@ -56,7 +55,7 @@ public class CSVParser {
             bw.write(data);
         }
         newLine = false;
-        CSVParser.data.add(data);
+        CSVHandler.data.add(data);
     }
 
     public String[] getData() {
