@@ -1,6 +1,5 @@
 package cs151.application;
 
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,32 +10,36 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class ExistingStudentProfileController {
-
+public class StudentSearchController {
     private Stage stage;
 
-    @FXML private TableView studentTableView;
-    @FXML private TableColumn<String, String> studentNameColumn;
-    @FXML private TableColumn<String, String> academicStatusColumn;
-    @FXML private TableColumn<String, String> jobColumn;
-    @FXML private TableColumn<String, String> jobDetailsColumn;
-    @FXML private TableColumn<String, String> programmingLangColumn;
-    @FXML private TableColumn<String, String> databasesColumn;
-    @FXML private TableColumn<String, String> preferredRoleColumn;
-    @FXML private TableColumn<String, String> flagsColumn;
-    @FXML private TableColumn<String, String> evaluationColumn;
+    @FXML
+    private TableView studentTableView;
+    @FXML private TableColumn<Student, String> studentNameColumn;
+    @FXML private TableColumn<Student, String> academicStatusColumn;
+    @FXML private TableColumn<Student, String> jobColumn;
+    @FXML private TableColumn<Student, String> jobDetailsColumn;
+    @FXML private TableColumn<Student, String> programmingLangColumn;
+    @FXML private TableColumn<Student, String> databasesColumn;
+    @FXML private TableColumn<Student, String> preferredRoleColumn;
+    @FXML private TableColumn<Student, String> flagsColumn;
+    @FXML private TableColumn<Student, String> evaluationColumn;
+    @FXML private TextField searchEntry;
 
     private ObservableList<Student> students;
+    private ObservableList<Student> matchedStudents;
 
     //initialize method
     //get the data from filedata in parser and add it
+    //same code from existing student to get all the students record
     public void initialize(){
 
         List<List<String>> profileData = Faculty.getStudentProfileRecord();
@@ -90,7 +93,7 @@ public class ExistingStudentProfileController {
 
         }
 
-        studentTableView.setItems(students);
+        //studentTableView.setItems(students);
 
         studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         academicStatusColumn.setCellValueFactory(new PropertyValueFactory<>("academicStatus"));
@@ -102,6 +105,37 @@ public class ExistingStudentProfileController {
         flagsColumn.setCellValueFactory(new PropertyValueFactory<>("flags"));
         evaluationColumn.setCellValueFactory(new PropertyValueFactory<>("evaluation"));
 
+    }
+
+    private void searchStudent() {
+        String searchText = searchEntry.getText();
+        if(searchText.isEmpty()) {
+            studentTableView.getItems().clear();
+            return;
+        }
+
+        searchText = searchText.trim();
+        String[] searchTexts = searchText.split(" ", -1);
+
+
+        matchedStudents = FXCollections.observableArrayList();
+        for (Student student : students) {
+            String allText;
+            allText = student.getName() + student.getAcademicStatus() + student.getJobStatus() + student.getJobDetails() + student.getProgrammingLang() + student.getDatabases() + student.getPreferredRole() + student.getFlags() + student.getEvaluation();
+            for(String searchItem : searchTexts) {
+                if (allText.toLowerCase().contains(searchItem.toLowerCase())) {
+                    if(!matchedStudents.contains(student))
+                        matchedStudents.add(student);
+                }
+            }
+        }
+        studentTableView.setItems(matchedStudents);
+
+    }
+
+    @FXML
+    protected void onSearchFieldEnter(KeyEvent event) {
+        searchStudent();
     }
 
     @FXML
