@@ -8,21 +8,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentSearchController {
     private Stage stage;
 
     @FXML
-    private TableView studentTableView;
+    private TableView<Student> studentTableView;
     @FXML private TableColumn<Student, String> studentNameColumn;
     @FXML private TableColumn<Student, String> academicStatusColumn;
     @FXML private TableColumn<Student, String> jobColumn;
@@ -36,6 +35,8 @@ public class StudentSearchController {
 
     private ObservableList<Student> students;
     private ObservableList<Student> matchedStudents;
+
+    @FXML private Button deleteButton;
 
     //initialize method
     //get the data from filedata in parser and add it
@@ -93,7 +94,7 @@ public class StudentSearchController {
 
         }
 
-        //studentTableView.setItems(students);
+        studentTableView.setItems(students);
 
         studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         academicStatusColumn.setCellValueFactory(new PropertyValueFactory<>("academicStatus"));
@@ -105,12 +106,13 @@ public class StudentSearchController {
         flagsColumn.setCellValueFactory(new PropertyValueFactory<>("flags"));
         evaluationColumn.setCellValueFactory(new PropertyValueFactory<>("evaluation"));
 
+        studentTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     private void searchStudent() {
         String searchText = searchEntry.getText();
         if(searchText.isEmpty()) {
-            studentTableView.getItems().clear();
+            studentTableView.setItems(students);
             return;
         }
 
@@ -131,11 +133,59 @@ public class StudentSearchController {
         }
         studentTableView.setItems(matchedStudents);
 
+
     }
 
     @FXML
     protected void onSearchFieldEnter(KeyEvent event) {
         searchStudent();
+    }
+
+    @FXML
+    protected void onDeleteButtonClick(ActionEvent event) {
+        ObservableList<Student> selectedStudents = studentTableView.getSelectionModel().getSelectedItems();
+        int numDelete = selectedStudents.size();
+        boolean confirm;
+        if(selectedStudents.isEmpty()) {
+            showDeleteInformation("Delete Student", "No students selected.");
+            return;
+        }
+        if(selectedStudents.size() == 1) {
+           confirm = showDeleteConfirmation("Delete Student", "Are you sure you want to delete " + selectedStudents.get(0).getName() + "?");
+        }else
+            confirm = showDeleteConfirmation("Delete Student", "Are you sure you want to delete " + numDelete + " students?");
+
+        if(confirm) {
+            List<Student> deleteStudents = new ArrayList<>(selectedStudents);
+
+            students.removeAll(deleteStudents);
+            this.searchStudent();
+            studentTableView.getSelectionModel().clearSelection();
+            showDeleteInformation("Delete Student", numDelete + " students have been deleted.");
+
+            // add code to delete the data from the csv file
+
+        }
+    }
+
+
+    private boolean showDeleteConfirmation(String title, String message){
+        //shows a alert to user using javafx Alert class
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText("");
+        alert.setContentText(message);
+        alert.showAndWait();
+        return alert.getResult() == ButtonType.OK;
+    }
+
+    private void showDeleteInformation(String title, String message){
+        //shows a alert to user using javafx Alert class
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText("");
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML
