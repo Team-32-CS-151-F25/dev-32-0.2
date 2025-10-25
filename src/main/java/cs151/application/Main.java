@@ -16,6 +16,11 @@ public class Main extends Application {
         stage.setTitle("Student Hub");
         stage.setScene(scene);
         stage.show();
+
+        stage.setWidth(800);
+        stage.setHeight(670);
+
+
     }
 
     public static void main(String[] args) {
