@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670" prefWidth="800" style="-fx-background-color: #93AEC4;">
             <children>
@@ -13,26 +17,35 @@
                     <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
                 </items>
             </ToolBar>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="800.0" text="Student Profile">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="800.0" text="Student Profile" translateY="15.0">
                 <font>
-                    <Font name="Avenir Roman" size="40.0" />
+                    <Font name="Avenir Roman" size="60.0" />
                 </font>
             </Label>
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="801.0" translateY="40.0">
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="800.0" translateY="40.0">
                <children>
-                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="201.0">
+                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="266.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#onCreateNewProfileClick" text="Create a New Student Profile" translateX="85.0" translateY="190.0" />
+                        <Button mnemonicParsing="false" onAction="#onCreateNewProfileClick" prefHeight="40.0" prefWidth="184.0" text="Create New Profile" translateX="85.0" translateY="190.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
                      </children>
                   </VBox>
-                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="217.0">
+                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="266.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#onExistingProfileClick" text="Go to existing Profile" translateX="145.0" translateY="190.0" />
+                        <Button mnemonicParsing="false" onAction="#onExistingProfileClick" prefHeight="40.0" prefWidth="174.0" text="Existing Profile" translateX="61.0" translateY="190.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
                      </children>
                   </VBox>
-                  <VBox layoutX="359.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="247.0">
+                  <VBox layoutX="359.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="266.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#onSearchProfileClick" prefWidth="135.0" text="Search Students" translateX="140.0" translateY="190.0" />
+                        <Button mnemonicParsing="false" onAction="#onSearchProfileClick" prefHeight="43.0" prefWidth="167.0" text="Search Students" translateX="20.0" translateY="190.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
                      </children>
                   </VBox>
                </children>
