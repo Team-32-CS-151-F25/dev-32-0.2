@@ -21,7 +21,7 @@
              <HBox prefHeight="300.0" prefWidth="300.0" />
              <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="112.0" prefWidth="696.0" text="STUDENT HUB" translateY="-105.0">
                   <font>
-                      <Font size="40.0" />
+                      <Font name="Avenir Roman" size="40.0" />
                   </font>
              </Label>
             <HBox alignment="CENTER" prefHeight="36.0" prefWidth="591.0">

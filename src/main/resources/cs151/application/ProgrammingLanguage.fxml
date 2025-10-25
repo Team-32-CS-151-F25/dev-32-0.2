@@ -23,7 +23,7 @@
                   </ToolBar>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="70.0" prefWidth="697.0" text="Programming Languages">
                       <font>
-                          <Font size="40.0" />
+                          <Font name="Avenir Roman" size="40.0" />
                       </font>
                   </Label>
                 <TextFlow prefHeight="114.0" prefWidth="632.0" textAlignment="CENTER">
@@ -35,9 +35,9 @@
                         <Button mnemonicParsing="false" onAction="#onAddLanguageClick" prefHeight="26.0" prefWidth="45.0" text="Add" translateX="10.0" translateY="31.0" />
                     </children>
                 </TextFlow>
-            <TableView fx:id="table" maxWidth="485.0" prefHeight="246.0" prefWidth="485.0" translateX="98.0">
+            <TableView fx:id="table" maxWidth="502.0" prefHeight="246.0" prefWidth="502.0" translateX="98.0">
               <columns>
-                <TableColumn fx:id="languageColumn" editable="false" maxWidth="474.7420120239258" minWidth="430.0" prefWidth="472.25635528564453" resizable="false" text="Inputs" />
+                <TableColumn fx:id="languageColumn" editable="false" maxWidth="500.99999237060547" minWidth="430.0" prefWidth="500.94896697998047" resizable="false" text="Inputs" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

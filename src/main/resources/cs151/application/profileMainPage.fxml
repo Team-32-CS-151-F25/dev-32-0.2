@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.MainController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.1" prefWidth="696.3" style="-fx-background-color: #93AEC4;">
             <children>
@@ -24,19 +24,19 @@
             </Label>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="697.0">
                <children>
-                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="201.0">
+                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="232.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#onCreateNewProfileClick" text="Create a New Student Profile" translateX="85.0" translateY="190.0" />
                      </children>
                   </VBox>
-                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="217.0">
+                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="232.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#onExistingProfileClick" text="Go to existing Profile" translateX="105.0" translateY="190.0" />
+                        <Button mnemonicParsing="false" onAction="#onExistingProfileClick" text="Go to existing Profile" translateX="70.0" translateY="190.0" />
                      </children>
                   </VBox>
-                  <VBox layoutX="359.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="247.0">
+                  <VBox layoutX="359.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="232.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#onSearchProfileClick" text="Search Students" translateX="105.0" translateY="190.0" />
+                        <Button mnemonicParsing="false" onAction="#onSearchProfileClick" text="Search Students" translateX="10.0" translateY="190.0" />
                      </children>
                   </VBox>
                </children>
