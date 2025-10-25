@@ -127,6 +127,41 @@ public class CSVParser {
         }
     }
 
+    public void removeLine(int lineNum) {
+        List<List<String>> fileData;
+
+        try {
+            fileData = getFileData();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        //get the row to update
+        List<String> row = fileData.get(lineNum);
+
+//        if (lineNum < 0 || lineNum > fileData.size()) {throw new IndexOutOfBoundsException("Remove line out of bounds");}
+//        //if the add index is greater than size then add at end
+
+        fileData.remove(lineNum);
+
+        //write all the data back the csv file
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename, false));){
+            for (int i = 0; i < fileData.size(); i++) {
+                StringBuilder sb = new StringBuilder();
+                for (int j = 0; j < fileData.get(i).size(); j++) {
+                    sb.append(fileData.get(i).get(j));
+                    if (j != fileData.get(i).size() - 1) {
+                        sb.append(",");
+                    }
+                }
+                bw.write(sb.toString());
+                bw.newLine();
+                newLine = true;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<List<String>> getFileData() throws IOException {
         List<List<String>> fileData = new ArrayList<>();
         try {
@@ -143,6 +178,7 @@ public class CSVParser {
         }
         return fileData;
     }
+
 
     
     public String[] getLineArray() throws IOException {

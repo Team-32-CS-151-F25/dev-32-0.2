@@ -54,6 +54,14 @@ public class StudentProfile {
         }
         return allData;
     }
+
+    public static void removeStudentData(String name) throws IOException {
+        ArrayList<String> names = profileParser.getFirstValues();
+        if(names.contains(name)){
+            int lineNum = names.indexOf(name);
+            profileParser.removeLine(lineNum);
+        }
+    }
     // Each of the below will add to their own csv file with Name as the identifier
     //method to add skills
     static class Skills {
@@ -87,6 +95,14 @@ public class StudentProfile {
                 throw new RuntimeException(e);
             }
             return allData;
+        }
+
+        public static void removeStudentData(String name) throws IOException {
+            ArrayList<String> names = skillParser.getFirstValues();
+            if(names.contains(name)){
+                int lineNum = names.indexOf(name);
+                skillParser.removeLine(lineNum);
+            }
         }
     }
 
@@ -126,6 +142,14 @@ public class StudentProfile {
             }
             return allData;
         }
+
+        public static void removeStudentData(String name) throws IOException {
+            ArrayList<String> names = evaluationParser.getFirstValues();
+            if(names.contains(name)){
+                int lineNum = names.indexOf(name);
+                evaluationParser.removeLine(lineNum);
+            }
+        }
     }
 
     //method to add flags
@@ -150,6 +174,14 @@ public class StudentProfile {
                 throw new RuntimeException(e);
             }
             return allData;
+        }
+
+        public static void removeStudentData(String name) throws IOException {
+            ArrayList<String> names = flagParser.getFirstValues();
+            if(names.contains(name)){
+                int lineNum = names.indexOf(name);
+                flagParser.removeLine(lineNum);
+            }
         }
     }
 

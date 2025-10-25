@@ -159,11 +159,17 @@ public class StudentSearchController {
             List<Student> deleteStudents = new ArrayList<>(selectedStudents);
 
             students.removeAll(deleteStudents);
+            for(Student student : deleteStudents)
+            {
+                try {
+                    Faculty.removeStudentData(student.getName());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
             this.searchStudent();
             studentTableView.getSelectionModel().clearSelection();
             showDeleteInformation("Delete Student", numDelete + " students have been deleted.");
-
-            // add code to delete the data from the csv file
 
         }
     }
