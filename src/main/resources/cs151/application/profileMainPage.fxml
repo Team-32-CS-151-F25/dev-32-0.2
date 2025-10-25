@@ -18,7 +18,7 @@
                     <Font name="Avenir Roman" size="40.0" />
                 </font>
             </Label>
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="801.0">
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="801.0" translateY="40.0">
                <children>
                   <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="201.0">
                      <children>
