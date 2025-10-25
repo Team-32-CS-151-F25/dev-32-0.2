@@ -6,9 +6,9 @@ Student Hub allows professor to create and manage student profiles, by storing b
 ## who did what:
 Version 0.6:
 1. Samipya Bhusal: Back-end
-2. Reena Boddukuri: 
-3. Jennifer Lucero: 
-4. Anthony Robinson: 
+2. Reena Boddukuri: UI
+3. Jennifer Lucero: UI & prototype testing
+4. Anthony Robinson: N/A
 
 Version 0.5:
 1. Samipya Bhusal: Back-end
