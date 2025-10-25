@@ -58,7 +58,7 @@ public class StudentProfileController {
                 .addListener((observable, oldValue, newValue) -> {
                     if (newValue != oldValue) {
                         academicStatus = newValue;
-                        System.out.println("Academic Status is " + academicStatus);
+                        //System.out.println("Academic Status is " + academicStatus);
                     }
                 });
 
@@ -73,7 +73,7 @@ public class StudentProfileController {
                 .addListener((observable, oldValue, newValue) -> {
                     if (newValue != oldValue) {
                         preferredRole = newValue;
-                        System.out.println("Preferred Role is " + preferredRole);
+                        //System.out.println("Preferred Role is " + preferredRole);
                     }
                 });
 
@@ -164,7 +164,7 @@ public class StudentProfileController {
             if (language.isSelected()) {
                 //if they are selected add them to the programmingLang list
                 programmingLang.add(language.getText());
-                System.out.println("Programming Language is " + programmingLang.toString());
+                //System.out.println("Programming Language is " + programmingLang.toString());
             }
         }
 
@@ -173,7 +173,7 @@ public class StudentProfileController {
         for (CheckBox db : database) {
             if (db.isSelected()) {
                 databaseKnown.add(db.getText());
-                System.out.println("Database is " + databaseKnown.toString());
+                //System.out.println("Database is " + databaseKnown.toString());
             }
         }
 
@@ -219,6 +219,22 @@ public class StudentProfileController {
                     Faculty.setStudentEval(studentEvaluation);
                     //need to update the code for faculty to change flags
                     Faculty.setStudentFlag(flag);
+
+                    //clear all field if the student gets added successfully
+                    nameTextField.clear();
+                    jobDetailsTextField.clear();
+                    studentEvaluationArea.clear();
+                    for(CheckBox language : languages)
+                        language.setSelected(false);
+
+                    for(CheckBox db : database)
+                        db.setSelected(false);
+                    academicStatusChoiceBox.getSelectionModel().clearSelection();
+                    professionChoiceBox.getSelectionModel().clearSelection();
+                    employed.setSelected(false);
+                    unemployed.setSelected(false);
+                    whitelist.setSelected(false);
+                    blacklist.setSelected(false);
                 } else
                     showAlert("Duplicate Data", "Student Name Already Exists");
             }

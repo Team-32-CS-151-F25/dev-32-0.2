@@ -57,6 +57,12 @@ public class MainController {
     }
 
     @FXML
+    protected void onSearchProfileClick(ActionEvent event){
+        changeScene(event, "studentSearch.fxml");
+    }
+
+
+    @FXML
     protected void onAddLanguageClick(ActionEvent event) throws IOException {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         TextField langField = (TextField) stage.getScene().lookup("#languageNameInput");

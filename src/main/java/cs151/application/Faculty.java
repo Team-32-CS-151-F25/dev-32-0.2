@@ -56,4 +56,11 @@ public class Faculty {
         return StudentProfile.Flags.getAllData();
     }
 
+    public static void removeStudentData(String name) throws IOException {
+        StudentProfile.removeStudentData(name);
+        StudentProfile.Skills.removeStudentData(name);
+        StudentProfile.Evaluation.removeStudentData(name);
+        StudentProfile.Flags.removeStudentData(name);
+    }
+
 }

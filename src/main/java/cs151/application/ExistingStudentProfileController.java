@@ -33,6 +33,7 @@ public class ExistingStudentProfileController {
     @FXML private TableColumn<String, String> flagsColumn;
     @FXML private TableColumn<String, String> evaluationColumn;
 
+    private ObservableList<Student> students;
 
     //initialize method
     //get the data from filedata in parser and add it
@@ -53,7 +54,7 @@ public class ExistingStudentProfileController {
         String flags = "";
         String evaluation = "";
 
-        ObservableList<Student> students = FXCollections.observableArrayList();
+        students = FXCollections.observableArrayList();
 
         for (int i = 0; i < profileData.size() ; i++) {
             name = (profileData.get(i).get(0));
