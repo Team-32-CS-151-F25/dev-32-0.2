@@ -61,6 +61,10 @@ public class MainController {
         changeScene(event, "studentSearch.fxml");
     }
 
+    @FXML
+    protected void onEditProfileClick(ActionEvent event){
+        changeScene(event, "editProfile.fxml");
+    }
 
     @FXML
     protected void onAddLanguageClick(ActionEvent event) throws IOException {

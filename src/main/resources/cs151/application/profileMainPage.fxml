@@ -24,28 +24,29 @@
             </Label>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="800.0" translateY="40.0">
                <children>
-                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="266.0">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="400.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#onCreateNewProfileClick" prefHeight="40.0" prefWidth="184.0" text="Create New Profile" translateX="85.0" translateY="190.0">
+                        <Button mnemonicParsing="false" onAction="#onCreateNewProfileClick" prefHeight="40.0" prefWidth="184.0" text="Create New Profile" translateX="135.0" translateY="140.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Button>
+                        <Button mnemonicParsing="false" onAction="#onSearchProfileClick" prefHeight="43.0" prefWidth="167.0" text="Search Students" translateX="140.0" translateY="200.0">
                            <font>
                               <Font size="20.0" />
                            </font></Button>
                      </children>
                   </VBox>
-                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="266.0">
+                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="400.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#onExistingProfileClick" prefHeight="40.0" prefWidth="174.0" text="Existing Profile" translateX="61.0" translateY="190.0">
+                        <Button mnemonicParsing="false" onAction="#onExistingProfileClick" prefHeight="40.0" prefWidth="174.0" text="Existing Profile" translateX="60.0" translateY="140.0">
                            <font>
                               <Font size="20.0" />
                            </font></Button>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="359.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="266.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#onSearchProfileClick" prefHeight="43.0" prefWidth="167.0" text="Search Students" translateX="20.0" translateY="190.0">
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEditProfileClick" prefHeight="40.0" prefWidth="174.0" text="Edit Profiles" translateX="60.0" translateY="200.0">
                            <font>
                               <Font size="20.0" />
-                           </font></Button>
+                           </font>
+                        </Button>
                      </children>
                   </VBox>
                </children>
