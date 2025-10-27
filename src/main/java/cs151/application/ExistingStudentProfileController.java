@@ -122,4 +122,10 @@ public class ExistingStudentProfileController {
         }
     }
 
+    //change back to the student profile page
+    @FXML
+    protected void onBackToProfilePageButtonClick(ActionEvent event){
+        changeScene(event, "profileMainPage.fxml");
+    }
+
 }

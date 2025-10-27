@@ -12,6 +12,7 @@
                 <ToolBar blendMode="COLOR_BURN" prefHeight="37.0" prefWidth="632.0">
                     <items>
                         <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onBackToProfilePageButtonClick" text="Student Profile" />
                     </items>
                 </ToolBar>
                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="59.0" prefWidth="817.0" text="Edit Student Profiles">
