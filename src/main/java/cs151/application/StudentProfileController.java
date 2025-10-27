@@ -293,4 +293,10 @@ public class StudentProfileController {
             e.printStackTrace();
         }
     }
+
+    //change back to the student profile page
+    @FXML
+    protected void onBackToProfilePageButtonClick(ActionEvent event){
+        changeScene(event, "profileMainPage.fxml");
+    }
 }
