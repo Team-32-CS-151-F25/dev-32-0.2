@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentProfile {
-    private static final CSVParser profileParser = new CSVParser("src/main/resources/cs151/application/studentsProfile.csv");
+    private static final CSVParser profileParser = new CSVParser("src/main/resources/data/studentsProfile.csv");
 
     private static String studentName = "";
 
@@ -65,7 +65,7 @@ public class StudentProfile {
     // Each of the below will add to their own csv file with Name as the identifier
     //method to add skills
     static class Skills {
-        private static final CSVParser skillParser = new CSVParser("src/main/resources/cs151/application/skills.csv");
+        private static final CSVParser skillParser = new CSVParser("src/main/resources/data/skills.csv");
 
         public static void setProgrammingLang (String[] langauage) throws IOException {
             skillParser.setData(studentName);
@@ -108,7 +108,7 @@ public class StudentProfile {
 
     //method to add evaluations
     static class Evaluation {
-        private static final CSVParser evaluationParser = new CSVParser("src/main/resources/cs151/application/evaluations.csv");
+        private static final CSVParser evaluationParser = new CSVParser("src/main/resources/data/evaluations.csv");
 
         public static void setEvaluation(String evaluation) throws IOException {
             //need to check if the student name already exists,
@@ -154,7 +154,7 @@ public class StudentProfile {
 
     //method to add flags
     static class Flags {
-        private static final CSVParser flagParser = new CSVParser("src/main/resources/cs151/application/flags.csv");
+        private static final CSVParser flagParser = new CSVParser("src/main/resources/data/flags.csv");
         //  ADD A CHECK FOR EXISTING DATA AND UPDATE THE NEW VALUE -> NEEDS UPDATE BEFORE IT WORS
         public static void setFlag(String flag) throws IOException {
             ArrayList<String> names = flagParser.getFirstValues();

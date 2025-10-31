@@ -16,7 +16,7 @@ public class CSVParser {
         try {
             readFile(filename);
             //newline was causing issues for programming language for some reason
-            if (filename == "src/main/resources/cs151/application/languages.csv") {newLine = false;}
+            if (filename == "src/main/resources/data/languages.csv") {newLine = false;}
             br = new BufferedReader(new FileReader(filename));
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class ProgrammingLanguage {
-    private final static String filename = "src/main/resources/cs151/application/languages.csv";
+    private final static String filename = "src/main/resources/data/languages.csv";
     private static final CSVParser lnaguageParser = new CSVParser(filename);
 
     public static void setLanguage(String language) throws IOException {
