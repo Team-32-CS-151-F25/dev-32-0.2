@@ -1,5 +1,7 @@
-package cs151.application;
+package cs151.application.controller;
 
+import cs151.application.Faculty;
+import cs151.application.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -123,7 +125,9 @@ public class StudentSearchController {
         matchedStudents = FXCollections.observableArrayList();
         for (Student student : students) {
             String allText;
-            allText = student.getName() + student.getAcademicStatus() + student.getJobStatus() + student.getJobDetails() + student.getProgrammingLang() + student.getDatabases() + student.getPreferredRole() + student.getFlags() + student.getEvaluation();
+            allText = student.getName() + student.getAcademicStatus() + student.getJobStatus() +
+                    student.getJobDetails() + student.getProgrammingLang() + student.getDatabases() +
+                    student.getPreferredRole() + student.getFlags() + student.getEvaluation();
             for(String searchItem : searchTexts) {
                 if (allText.toLowerCase().contains(searchItem.toLowerCase())) {
                     if(!matchedStudents.contains(student))
@@ -196,7 +200,7 @@ public class StudentSearchController {
 
     @FXML
     protected void onHomeButtonClick(ActionEvent event) {
-        changeScene(event, "hello-view.fxml");
+        changeScene(event, "/cs151/application/view/hello-view.fxml");
     }
 
     protected void changeScene(ActionEvent event, String fxmlFile) {
@@ -215,6 +219,6 @@ public class StudentSearchController {
     //change back to the student profile page
     @FXML
     protected void onBackToProfilePageButtonClick(ActionEvent event){
-        changeScene(event, "profileMainPage.fxml");
+        changeScene(event, "/cs151/application/view/profileMainPage.fxml");
     }
 }

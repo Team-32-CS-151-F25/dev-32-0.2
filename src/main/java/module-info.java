@@ -8,4 +8,6 @@ module cs151.application {
 
     opens cs151.application to javafx.fxml;
     exports cs151.application;
+    opens cs151.application.controller to javafx.fxml;
+    exports cs151.application.controller;
 }

@@ -1,6 +1,7 @@
-package cs151.application;
+package cs151.application.controller;
 
-import javafx.beans.property.ReadOnlyStringWrapper;
+import cs151.application.Faculty;
+import cs151.application.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +16,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ExistingStudentProfileController {
@@ -106,7 +106,7 @@ public class ExistingStudentProfileController {
 
     @FXML
     protected void onHomeButtonClick(ActionEvent event) {
-        changeScene(event, "hello-view.fxml");
+        changeScene(event, "/cs151/application/view/hello-view.fxml");
     }
 
     protected void changeScene(ActionEvent event, String fxmlFile) {
@@ -125,7 +125,7 @@ public class ExistingStudentProfileController {
     //change back to the student profile page
     @FXML
     protected void onBackToProfilePageButtonClick(ActionEvent event){
-        changeScene(event, "profileMainPage.fxml");
+        changeScene(event, "/cs151/application/view/profileMainPage.fxml");
     }
 
 }

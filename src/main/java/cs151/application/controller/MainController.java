@@ -1,6 +1,6 @@
-package cs151.application;
+package cs151.application.controller;
 
-import javafx.beans.property.ReadOnlyStringProperty;
+import cs151.application.Faculty;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,39 +31,39 @@ public class MainController {
     // change back to homepage
     @FXML
     protected void onHomeButtonClick(ActionEvent event) {
-        changeScene(event, "hello-view.fxml");
+        changeScene(event, "/cs151/application/view/hello-view.fxml");
     }
 
     // switch to programming language scene
     @FXML
     protected void onProgrammingLanguageButtonClick(ActionEvent event) {
-        changeScene(event,"ProgrammingLanguage.fxml");
+        changeScene(event, "/cs151/application/view/ProgrammingLanguage.fxml");
     }
 
     //navigate to student profile page
     @FXML
     protected void onStudentProfileButtonClick(ActionEvent event){
-        changeScene(event, "profileMainPage.fxml");
+        changeScene(event, "/cs151/application/view/profileMainPage.fxml");
     }
 
     @FXML
     protected void onCreateNewProfileClick(ActionEvent event){
-        changeScene(event, "studentProfile.fxml");
+        changeScene(event, "/cs151/application/view/studentProfile.fxml");
     }
 
     @FXML
     protected void onExistingProfileClick(ActionEvent event){
-        changeScene(event, "existingStudentProfiles.fxml");
+        changeScene(event, "/cs151/application/view/existingStudentProfiles.fxml");
     }
 
     @FXML
     protected void onSearchProfileClick(ActionEvent event){
-        changeScene(event, "studentSearch.fxml");
+        changeScene(event, "/cs151/application/view/studentSearch.fxml");
     }
 
     @FXML
     protected void onEditProfileClick(ActionEvent event){
-        changeScene(event, "editProfile.fxml");
+        changeScene(event, "/cs151/application/view/editProfile.fxml");
     }
 
     @FXML
@@ -106,7 +106,7 @@ public class MainController {
             stage.show();
 
             // Only for programminglanguage.fxml scene, update list if it exists
-            if ("ProgrammingLanguage.fxml".equals(fxmlFile)) {
+            if ("/cs151/application/view/ProgrammingLanguage.fxml".equals(fxmlFile)) {
                 refreshLanguageTable(stage);
             }
         } catch (IOException e) {

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.StudentSearchController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.controller.ExistingStudentProfileController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670" prefWidth="800" style="-fx-background-color: #93AEC4;">
             <children>
@@ -15,17 +15,12 @@
                         <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onBackToProfilePageButtonClick" text="Student Profile" />
                     </items>
                 </ToolBar>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="59.0" prefWidth="817.0" text="Search Student Profiles">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="59.0" prefWidth="802.0" text="Existing Student Profiles">
                     <font>
                         <Font name="Avenir Roman" size="40.0" />
                     </font>
                 </Label>
-            <TextField fx:id="searchEntry" alignment="CENTER" onKeyTyped="#onSearchFieldEnter" prefHeight="26.0" prefWidth="300.0" promptText="Enter Search Text">
-               <VBox.margin>
-                  <Insets left="20.0" right="20.0" />
-               </VBox.margin>
-            </TextField>
-                <TableView fx:id="studentTableView" maxWidth="799.0" onKeyTyped="#onSearchFieldEnter" prefHeight="444.0" prefWidth="761.0">
+                <TableView fx:id="studentTableView" maxWidth="815.0" prefHeight="499.0" prefWidth="761.0">
                     <columns>
                         <TableColumn fx:id="studentNameColumn" editable="false" maxWidth="430.0" minWidth="101.0" prefWidth="101.0" text="Student Name" />
                   <TableColumn fx:id="academicStatusColumn" prefWidth="95.5" text="Academic Status" />
@@ -44,15 +39,6 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
                 </TableView>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0">
-               <buttons>
-                <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onDeleteButtonClick" text="Delete" translateX="-20.0" translateY="-10.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Button>
-               </buttons>
-            </ButtonBar>
             </children>
         </VBox>
     </children>

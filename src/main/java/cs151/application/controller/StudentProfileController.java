@@ -1,5 +1,7 @@
-package cs151.application;
+package cs151.application.controller;
 
+import cs151.application.Faculty;
+import cs151.application.ProgrammingLanguage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -269,7 +271,7 @@ public class StudentProfileController {
 
     @FXML
     protected void onHomeButtonClick(ActionEvent event) {
-        changeScene(event, "hello-view.fxml");
+        changeScene(event, "/cs151/application/view/hello-view.fxml");
     }
 
     private void showAlert(String title, String message){
@@ -297,6 +299,6 @@ public class StudentProfileController {
     //change back to the student profile page
     @FXML
     protected void onBackToProfilePageButtonClick(ActionEvent event){
-        changeScene(event, "profileMainPage.fxml");
+        changeScene(event, "/cs151/application/view/profileMainPage.fxml");
     }
 }
