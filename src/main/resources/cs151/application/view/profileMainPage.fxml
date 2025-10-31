@@ -42,7 +42,7 @@
                            <font>
                               <Font size="20.0" />
                            </font></Button>
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onEditProfileClick" prefHeight="40.0" prefWidth="174.0" text="Edit Profiles" translateX="60.0" translateY="200.0">
+                        <Button disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="174.0" text="Edit Profiles" translateX="60.0" translateY="200.0">
                            <font>
                               <Font size="20.0" />
                            </font>

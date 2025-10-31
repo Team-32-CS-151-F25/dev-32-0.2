@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="525.0" prefWidth="392.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.controller.MainController">
+<AnchorPane prefHeight="525.0" prefWidth="392.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.controller.MainController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670" prefWidth="800" style="-fx-background-color: #93AEC4;">
           <children>
@@ -42,7 +42,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="124.0" text="Generate Reports">
+                  <Button disable="true" mnemonicParsing="false" prefHeight="36.0" prefWidth="124.0" text="Generate Reports">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>

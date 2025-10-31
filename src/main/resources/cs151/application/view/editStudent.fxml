@@ -171,7 +171,7 @@
                                     </CheckBox>
                                  </children>
                               </TextFlow>
-                              <Button fx:id="addStudentButton" alignment="CENTER" mnemonicParsing="false" onAction="#onAddStudent" text="Update Student" textAlignment="CENTER" translateX="85.0" translateY="5.0">
+                              <Button fx:id="addStudentButton" alignment="CENTER" mnemonicParsing="false" onAction="#onUpdateStudent" text="Update Student" textAlignment="CENTER" translateX="85.0" translateY="5.0">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>

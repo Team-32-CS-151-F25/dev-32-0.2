@@ -54,6 +54,8 @@ public class EditStudentController {
 
     private Student student;
 
+    private String originalStudentName;
+
 
     @FXML
     public void initialize(){
@@ -137,8 +139,12 @@ public class EditStudentController {
             populateFields();
         }
     }
+
     private void populateFields(){
+
+        originalStudentName = student.getName();
         nameTextField.setText(student.getName());
+
         academicStatusChoiceBox.getSelectionModel().select(student.getAcademicStatus());
         //job status is not working
         if ("Employed".equals(student.getJobStatus()) ) {
@@ -160,13 +166,11 @@ public class EditStudentController {
         professionChoiceBox.getSelectionModel().select(student.getPreferredRole());
         whitelist.setSelected(student.getFlags().contains("Whitelist"));
         blacklist.setSelected(student.getFlags().contains("Blacklist"));
-
-
     }
 
 
     @FXML
-    private void onAddStudent()
+    private void onUpdateStudent(ActionEvent event)
     {
         //studentName,academicStatus,employmentStatus,jobDetails,
         // programmingLang[],databaseKnown[],preferredRole,
@@ -251,6 +255,14 @@ public class EditStudentController {
         try {
             if( !studentName.isEmpty() && !academicStatus.isEmpty() && !employmentStatus.isEmpty()
                     && !programmingLang.isEmpty() && !databaseKnown.isEmpty() && !preferredRole.isEmpty()) {
+
+
+                student = new Student(studentName, academicStatus, employmentStatus, jobDetails,
+                        String.join( ",", programmingLang), String.join( ",", databaseKnown),
+                        preferredRole, flag, studentEvaluation);
+
+                Faculty.removeStudentData(originalStudentName);
+
                 if (!Faculty.matchName(studentName.trim())) {
                     Faculty.setStudentProfile(studentName, academicStatus, employmentStatus, jobDetails);
                     Faculty.setStudentSkills(programmingLang.toArray(new String[0]), databaseKnown.toArray(new String[0]), preferredRole);
@@ -273,11 +285,13 @@ public class EditStudentController {
                     unemployed.setSelected(false);
                     whitelist.setSelected(false);
                     blacklist.setSelected(false);
+
+                    changeScene(event, "/cs151/application/view/studentSearch.fxml");
                 } else
                     showAlert("Duplicate Data", "Student Name Already Exists");
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+       } catch (IOException e) {
+        throw new RuntimeException(e);
         }
 
     }
