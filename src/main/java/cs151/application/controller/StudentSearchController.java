@@ -204,7 +204,7 @@ public class StudentSearchController {
     }
 
     protected void changeScene(ActionEvent event, String fxmlFile) {
-        try {
+        try{
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
@@ -220,5 +220,29 @@ public class StudentSearchController {
     @FXML
     protected void onBackToProfilePageButtonClick(ActionEvent event){
         changeScene(event, "/cs151/application/view/profileMainPage.fxml");
+    }
+
+    @FXML
+    protected void onEditProfileClick(ActionEvent event){
+        ObservableList<Student> selectedStudents = studentTableView.getSelectionModel().getSelectedItems();
+        if(selectedStudents.size() != 1)
+        {
+            showDeleteInformation("Edit Student", "Please select only one student to edit.");
+        }else{
+            try{
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/editStudent.fxml"));
+                Parent root = loader.load();
+
+                EditStudentController controller = loader.getController();
+                controller.setStudent(selectedStudents.getFirst());
+
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
