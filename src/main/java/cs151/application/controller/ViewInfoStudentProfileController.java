@@ -23,9 +23,10 @@ public class ViewInfoStudentProfileController {
     @FXML private Label flagLabel;
     @FXML private Label evaluationLabel;
 
-    private Student student; // your model class
+    private Student student;
 
-    // called when you load this page from the table
+
+    // would be called when this page is loaded from the table
     public void setStudent(Student student) {
         this.student = student;
         nameLabel.setText("Name: " + student.getName());
