@@ -1,9 +1,15 @@
 # Name of application: Student Hub
-# Version: 0.5
+# Version: 0.7
 
 ## Description: 
 Student Hub allows professor to create and manage student profiles, by storing basic student information, skills, interests, and evaluations. It’s a comprehensive tool that helps maintain record of students’ academic and professional development.
 ## who did what:
+Version 0.7:
+1. Samipya Bhusal: Back-end
+2. Reena Boddukuri: UI & Back-end
+3. Jennifer Lucero: UI & Back-end
+4. Anthony Robinson: Prototype testing & UI
+
 Version 0.6:
 1. Samipya Bhusal: Back-end
 2. Reena Boddukuri: UI
