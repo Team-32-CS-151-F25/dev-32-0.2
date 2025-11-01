@@ -69,6 +69,9 @@ public class ViewInfoStudentProfileController {
         // fill table - tony
         studentInfoTable.setItems(items);
 
+        attributeColumn.setPrefWidth(150);
+        valueColumn.setPrefWidth(350);
+
         // hides table header - tony
         studentInfoTable.skinProperty().addListener((obs, oldSkin, newSkin) -> {
             Node header = studentInfoTable.lookup("TableHeaderRow");
@@ -93,6 +96,7 @@ public class ViewInfoStudentProfileController {
         studentInfoTable.setMaxWidth(500);
         studentInfoTable.setPrefWidth(500);
         studentInfoTable.setMinWidth(500);
+
 
 
         /*

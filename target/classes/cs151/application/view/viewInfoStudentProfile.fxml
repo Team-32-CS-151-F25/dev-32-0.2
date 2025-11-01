@@ -18,6 +18,7 @@
     </Label>
     -->
 
+    <!-- new label that matches the others - tony -->
     <Label alignment="CENTER" text="Student Profile">
         <font>
             <Font name="Avenir Roman" size="40.0" />
@@ -25,6 +26,7 @@
     </Label>
 
 
+    <!-- table -->
     <TableView fx:id="studentInfoTable" prefWidth="700.0" prefHeight="400.0">
         <columns>
             <TableColumn fx:id="attributeColumn" text="Attribute" prefWidth="200.0" />
