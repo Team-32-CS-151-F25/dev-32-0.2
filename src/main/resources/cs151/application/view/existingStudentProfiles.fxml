@@ -20,7 +20,7 @@
                         <Font name="Avenir Roman" size="40.0" />
                     </font>
                 </Label>
-                <TableView fx:id="studentTableView" maxWidth="815.0" prefHeight="499.0" prefWidth="761.0">
+                <TableView fx:id="studentTableView" onMouseClicked="#onStudentClicked" maxWidth="815.0" prefHeight="499.0" prefWidth="761.0">
                     <columns>
                         <TableColumn fx:id="studentNameColumn" editable="false" maxWidth="430.0" minWidth="101.0" prefWidth="101.0" text="Student Name" />
                   <TableColumn fx:id="academicStatusColumn" prefWidth="95.5" text="Academic Status" />

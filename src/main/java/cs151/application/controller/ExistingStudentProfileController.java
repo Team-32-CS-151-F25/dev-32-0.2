@@ -22,7 +22,7 @@ public class ExistingStudentProfileController {
 
     private Stage stage;
 
-    @FXML private TableView studentTableView;
+    @FXML private TableView<Student> studentTableView;
     @FXML private TableColumn<String, String> studentNameColumn;
     @FXML private TableColumn<String, String> academicStatusColumn;
     @FXML private TableColumn<String, String> jobColumn;
@@ -127,5 +127,25 @@ public class ExistingStudentProfileController {
     protected void onBackToProfilePageButtonClick(ActionEvent event){
         changeScene(event, "/cs151/application/view/profileMainPage.fxml");
     }
+    //
+
+
+    @FXML
+    private void onStudentClicked() throws IOException {
+        Student selectedStudent = studentTableView.getSelectionModel().getSelectedItem();
+        if (selectedStudent != null) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/viewInfoStudentProfile.fxml"));
+            Parent root = loader.load();
+
+            // Pass selected student to the new controller
+            ViewInfoStudentProfileController controller = loader.getController();
+            controller.setStudent(selectedStudent);
+
+            Stage stage = (Stage) studentTableView.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+    }
+
 
 }
