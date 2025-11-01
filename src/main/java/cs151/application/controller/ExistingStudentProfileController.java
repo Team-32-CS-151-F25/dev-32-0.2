@@ -137,7 +137,7 @@ public class ExistingStudentProfileController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/viewInfoStudentProfile.fxml"));
             Parent root = loader.load();
 
-            // Pass selected student to the new controller
+            // Passing the selected student to the new controller
             ViewInfoStudentProfileController controller = loader.getController();
             controller.setStudent(selectedStudent);
 
