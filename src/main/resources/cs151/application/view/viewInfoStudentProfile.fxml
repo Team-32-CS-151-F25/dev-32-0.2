@@ -19,6 +19,8 @@
     <Label fx:id="nameLabel" layoutX="50.0" layoutY="100.0" prefWidth="500.0" />
     <Label fx:id="statusLabel" layoutX="50.0" layoutY="130.0" prefWidth="500.0" />
     <Label fx:id="employmentLabel" layoutX="50.0" layoutY="160.0" prefWidth="500.0" />
+    <Label fx:id="jobDetailsLabel" layoutX="50.0" layoutY="160.0" prefWidth="500.0" />
+
     <Label fx:id="languagesLabel" layoutX="50.0" layoutY="190.0" prefWidth="500.0" />
     <Label fx:id="databasesLabel" layoutX="50.0" layoutY="220.0" prefWidth="500.0" />
     <Label fx:id="roleLabel" layoutX="50.0" layoutY="250.0" prefWidth="500.0" />

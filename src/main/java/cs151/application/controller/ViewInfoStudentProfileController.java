@@ -16,6 +16,7 @@ public class ViewInfoStudentProfileController {
     @FXML private Label nameLabel;
     @FXML private Label statusLabel;
     @FXML private Label employmentLabel;
+    @FXML private Label jobDetailsLabel;
     @FXML private Label languagesLabel;
     @FXML private Label databasesLabel;
     @FXML private Label roleLabel;
@@ -30,6 +31,7 @@ public class ViewInfoStudentProfileController {
         nameLabel.setText("Name: " + student.getName());
         statusLabel.setText("Academic Status: " + student.getAcademicStatus());
         employmentLabel.setText("Job Status: " + student.getJobStatus());
+        jobDetailsLabel.setText("Job Details: "+student.getJobDetails());
         languagesLabel.setText("Programming Languages: " + student.getProgrammingLang());
         databasesLabel.setText("Databases: " + student.getDatabases());
         roleLabel.setText("Preferred Role: " + student.getPreferredRole());
