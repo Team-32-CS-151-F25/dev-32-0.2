@@ -23,21 +23,21 @@ public class ViewInfoStudentProfileController {
     @FXML private Label flagLabel;
     @FXML private Label evaluationLabel;
 
-    private Student student;
+    private Student studentInfo;
 
 
     // would be called when this page is loaded from the table
-    public void setStudent(Student student) {
-        this.student = student;
-        nameLabel.setText("Name: " + student.getName());
-        statusLabel.setText("Academic Status: " + student.getAcademicStatus());
-        employmentLabel.setText("Job Status: " + student.getJobStatus());
-        jobDetailsLabel.setText("Job Details: "+student.getJobDetails());
-        languagesLabel.setText("Programming Languages: " + student.getProgrammingLang());
-        databasesLabel.setText("Databases: " + student.getDatabases());
-        roleLabel.setText("Preferred Role: " + student.getPreferredRole());
-        flagLabel.setText("Flag: " + student.getFlags());
-        evaluationLabel.setText("Evaluation: " + student.getEvaluation());
+    public void setStudent(Student studentInfo) {
+        this.studentInfo = studentInfo;
+        nameLabel.setText("Name: " + studentInfo.getName());
+        statusLabel.setText("Academic Status: " + studentInfo.getAcademicStatus());
+        employmentLabel.setText("Job Status: " + studentInfo.getJobStatus());
+        jobDetailsLabel.setText("Job Details: "+studentInfo.getJobDetails());
+        languagesLabel.setText("Programming Languages: " + studentInfo.getProgrammingLang());
+        databasesLabel.setText("Databases: " + studentInfo.getDatabases());
+        roleLabel.setText("Preferred Role: " + studentInfo.getPreferredRole());
+        flagLabel.setText("Flag: " + studentInfo.getFlags());
+        evaluationLabel.setText("Evaluation: " + studentInfo.getEvaluation());
     }
 
     @FXML
