@@ -27,45 +27,37 @@
                         <Font name="Avenir Roman" size="40.0" />
                     </font>
                 </Label>
-            <TextField fx:id="searchEntry" alignment="CENTER" onKeyTyped="#onSearchFieldEnter" prefHeight="26.0" prefWidth="300.0" promptText="Enter Search Text">
-               <VBox.margin>
-                  <Insets left="20.0" right="20.0" />
-               </VBox.margin>
-            </TextField>
+                <TextField fx:id="searchEntry" alignment="CENTER" onKeyTyped="#onSearchFieldEnter" prefHeight="26.0" prefWidth="300.0" promptText="Enter Search Text">
+                    <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                    </VBox.margin>
+                </TextField>
                 <TableView fx:id="studentTableView" maxWidth="799.0" onKeyTyped="#onSearchFieldEnter" prefHeight="444.0" prefWidth="761.0">
                     <columns>
                         <TableColumn fx:id="studentNameColumn" editable="false" maxWidth="430.0" minWidth="101.0" prefWidth="101.0" text="Student Name" />
-                  <TableColumn fx:id="academicStatusColumn" prefWidth="95.5" text="Academic Status" />
-                  <TableColumn fx:id="jobColumn" prefWidth="101.5" text="Job Status" />
-                  <TableColumn fx:id="jobDetailsColumn" prefWidth="90.0" text="Job Details" />
-                  <TableColumn fx:id="programmingLangColumn" prefWidth="87.0" text="Programming Languages " />
-                  <TableColumn fx:id="databasesColumn" prefWidth="69.5" text="Databases" />
-                  <TableColumn fx:id="preferredRoleColumn" prefWidth="109.0" text="Preferred Role" />
-                  <TableColumn fx:id="flagsColumn" prefWidth="75.0" text="Flags" />
-                  <TableColumn fx:id="evaluationColumn" prefWidth="75.0" text="Evaluations" />
+                        <TableColumn fx:id="academicStatusColumn" prefWidth="95.5" text="Academic Status" />
+                        <TableColumn fx:id="jobColumn" prefWidth="101.5" text="Job Status" />
+                        <TableColumn fx:id="jobDetailsColumn" prefWidth="90.0" text="Job Details" />
+                        <TableColumn fx:id="programmingLangColumn" prefWidth="87.0" text="Programming Languages " />
+                        <TableColumn fx:id="databasesColumn" prefWidth="69.5" text="Databases" />
+                        <TableColumn fx:id="preferredRoleColumn" prefWidth="109.0" text="Preferred Role" />
+                        <TableColumn fx:id="flagsColumn" prefWidth="75.0" text="Flags" />
+                        <TableColumn fx:id="evaluationColumn" prefWidth="75.0" text="Evaluations" />
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                     </columnResizePolicy>
-               <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </VBox.margin>
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </VBox.margin>
                 </TableView>
-            <ButtonBar prefHeight="64.0" prefWidth="800.0">
-               <buttons>
-                  <Button fx:id="editButton" layoutX="740.0" layoutY="17.0" mnemonicParsing="false" onAction="#onEditProfileClick" text="Edit" translateX="90.0" translateY="-20.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Button>
-                <Button fx:id="deleteButton" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="26.0" prefWidth="104.0" text="Delete" translateX="92.0" translateY="-20.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Button>
-                  <Button mnemonicParsing="false" text="Add Comments" translateX="-255.0" translateY="-20.0" />
-               </buttons>
-            </ButtonBar>
+                <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                        <Button fx:id="editButton" layoutX="740.0" layoutY="17.0" mnemonicParsing="false" onAction="#onEditProfileClick" text="Edit" translateX="-20.0" translateY="-10.0" />
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onDeleteButtonClick" text="Delete" translateX="-20.0" translateY="-10.0" />
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="97.0" text="Add Comment" translateX="-20.0" translateY="-10.0" />
+                    </buttons>
+                </ButtonBar>
             </children>
         </VBox>
     </children>
