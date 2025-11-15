@@ -1,6 +1,7 @@
 package cs151.application;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,13 +123,13 @@ public class StudentProfile {
             //the index of student Name will correspond to the line the student evaluation is stored in
             if (names.contains(studentName)) {
                 int lineNum = names.indexOf(studentName);
-                evaluationParser.updateLine(LocalDateTime.now().toString(),lineNum,1);
+                evaluationParser.updateLine(LocalDate.now().toString(),lineNum,1);
                 evaluationParser.updateLine(evaluation,lineNum,1);
 
             }else {
                 evaluationParser.setData(studentName);
                 evaluationParser.setData(evaluation);
-                evaluationParser.setData(LocalDateTime.now().toString());
+                evaluationParser.setData(LocalDate.now().toString());
                 evaluationParser.addNewLine();
             }
         }

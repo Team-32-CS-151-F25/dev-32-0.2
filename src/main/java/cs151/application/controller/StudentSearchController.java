@@ -245,4 +245,23 @@ public class StudentSearchController {
             }
         }
     }
+
+    @FXML
+    protected void onAddCommentClick(ActionEvent event){
+        ObservableList<Student> selectedStudents = studentTableView.getSelectionModel().getSelectedItems();
+        try{
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/studentComments.fxml"));
+            Parent root = loader.load();
+
+            StudentCommentsController controller = loader.getController();
+            controller.setStudent(selectedStudents.getFirst());
+
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -3,35 +3,14 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="/src/main/resources/cs151/application/evaluations.csv">
+        <entry key="/src/main/resources/data/comments.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="/src/main/resources/cs151/application/flags.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/src/main/resources/cs151/application/languages.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/src/main/resources/cs151/application/skills.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/src/main/resources/cs151/application/studentsProfile.csv">
+        <entry key="/src/main/resources/data/evaluations.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

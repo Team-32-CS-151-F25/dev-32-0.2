@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.controller.StudentSearchController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.controller.StudentSearchController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670" prefWidth="800" style="-fx-background-color: #93AEC4;">
             <children>
@@ -55,7 +55,7 @@
                     <buttons>
                         <Button fx:id="editButton" layoutX="740.0" layoutY="17.0" mnemonicParsing="false" onAction="#onEditProfileClick" text="Edit" translateX="-20.0" translateY="-10.0" />
                         <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onDeleteButtonClick" text="Delete" translateX="-20.0" translateY="-10.0" />
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="97.0" text="Add Comment" translateX="-20.0" translateY="-10.0" />
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddCommentClick" prefWidth="97.0" text="Add Comment" translateX="-20.0" translateY="-10.0" />
                     </buttons>
                 </ButtonBar>
             </children>
