@@ -36,6 +36,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
         </columnResizePolicy>
     </TableView>
+    <!-- table -->
 
     <!--
     <Label fx:id="nameLabel" layoutX="50.0" layoutY="100.0" prefWidth="500.0" />

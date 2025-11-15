@@ -301,4 +301,5 @@ public class StudentProfileController {
     protected void onBackToProfilePageButtonClick(ActionEvent event){
         changeScene(event, "/cs151/application/view/profileMainPage.fxml");
     }
+
 }

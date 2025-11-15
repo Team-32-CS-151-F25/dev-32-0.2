@@ -13,4 +13,5 @@ public class Comment {
 
     public String getText() { return text; }
     public LocalDate getDate() { return date; }
+    //
 }

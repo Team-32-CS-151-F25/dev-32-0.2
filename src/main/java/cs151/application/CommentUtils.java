@@ -17,7 +17,7 @@ public class CommentUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }//
 
     public static List<Comment> getComments(String studentName) {
         List<Comment> list = new ArrayList<>();

@@ -145,7 +145,7 @@ public class ViewInfoStudentProfileController {
             stage.setTitle("Comments for " + student.getName());
             stage.show();
         }
-
+//
 
 
 }
