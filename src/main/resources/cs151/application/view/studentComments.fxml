@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/21.0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.controller.StudentCommentsController">
+    <Label fx:id="studentNameLabel" text="Comments for: "/>
+
+    <TableView fx:id="commentsTable" prefHeight="300" prefWidth="400">
+        <columns>
+            <TableColumn fx:id="commentColumn" text="Comment" prefWidth="300"/>
+            <TableColumn fx:id="dateColumn" text="Date" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <TextArea fx:id="commentInput" promptText="Add a new comment" prefHeight="100" prefWidth="400"/>
+    <Button text="Save Comment" onAction="#onSaveCommentClick"/>
+    <Button text="Back" onAction="#onBackClick"/>
+</VBox>

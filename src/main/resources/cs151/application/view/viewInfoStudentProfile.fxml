@@ -50,6 +50,14 @@
     <Label fx:id="evaluationLabel" layoutX="50.0" layoutY="310.0" prefWidth="500.0" wrapText="true" />
     -->
 
+
+    <Button text="View/Add Comments" onAction="#onCommentsClick"/>
+
+
+
+
+
+
     <Button layoutX="266.0" layoutY="369.0" onAction="#onBackClick" prefHeight="26.0" prefWidth="109.0" text="Back" />
     
 </VBox>

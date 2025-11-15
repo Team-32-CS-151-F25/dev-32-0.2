@@ -1,5 +1,8 @@
 package cs151.application;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Student {
     private String name;
     private String academicStatus;
@@ -10,6 +13,8 @@ public class Student {
     private String preferredRole;
     private String flags;
     private String evaluation;
+
+
 
     public Student(String name, String academicStatus, String jobStatus,
                    String jobDetails, String programmingLang, String databases,
@@ -23,8 +28,11 @@ public class Student {
         this.preferredRole = preferredRole;
         this.flags = flags;
         this.evaluation = evaluation;
-    }
 
+
+
+    }
+    
     public String getName() { return name; }
     public String getAcademicStatus() { return academicStatus; }
     public String getJobStatus() { return jobStatus; }

@@ -153,7 +153,7 @@ public class StudentProfile {
     }
 
     //method to add flags
-    static class Flags {
+    public static class Flags {
         private static final CSVParser flagParser = new CSVParser("src/main/resources/data/flags.csv");
         //  ADD A CHECK FOR EXISTING DATA AND UPDATE THE NEW VALUE -> NEEDS UPDATE BEFORE IT WORS
         public static void setFlag(String flag) throws IOException {
@@ -182,7 +182,11 @@ public class StudentProfile {
                 int lineNum = names.indexOf(name);
                 flagParser.removeLine(lineNum);
             }
+
+
         }
+
+
     }
 
 

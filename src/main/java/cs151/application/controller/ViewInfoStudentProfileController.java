@@ -1,6 +1,7 @@
 package cs151.application.controller;
 
 import cs151.application.Student;
+
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -22,15 +23,24 @@ import java.util.Map;
 
 public class ViewInfoStudentProfileController {
 
-    @FXML private Label nameLabel;
-    @FXML private Label statusLabel;
-    @FXML private Label employmentLabel;
-    @FXML private Label jobDetailsLabel;
-    @FXML private Label languagesLabel;
-    @FXML private Label databasesLabel;
-    @FXML private Label roleLabel;
-    @FXML private Label flagLabel;
-    @FXML private Label evaluationLabel;
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private Label employmentLabel;
+    @FXML
+    private Label jobDetailsLabel;
+    @FXML
+    private Label languagesLabel;
+    @FXML
+    private Label databasesLabel;
+    @FXML
+    private Label roleLabel;
+    @FXML
+    private Label flagLabel;
+    @FXML
+    private Label evaluationLabel;
 
     @FXML
     private TableView<Map.Entry<String, String>> studentInfoTable;
@@ -57,6 +67,7 @@ public class ViewInfoStudentProfileController {
         info.put("Preferred Role", student.getPreferredRole());
         info.put("Flag", student.getFlags());
         info.put("Evaluation", student.getEvaluation());
+
 
         ObservableList<Map.Entry<String, String>> items =
                 FXCollections.observableArrayList(info.entrySet());
@@ -114,9 +125,27 @@ public class ViewInfoStudentProfileController {
 
     @FXML
     private void onBackClick(ActionEvent event) throws IOException {
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/cs151/application/view/existingStudentProfiles.fxml"));
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+        //
+        @FXML
+        private void onCommentsClick(ActionEvent event) throws IOException {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/studentComments.fxml"));
+            Parent root = loader.load();
+
+            StudentCommentsController controller = loader.getController();
+            controller.setStudent(student);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Comments for " + student.getName());
+            stage.show();
+        }
+
+
+
 }
