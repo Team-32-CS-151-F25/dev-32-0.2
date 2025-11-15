@@ -6,15 +6,21 @@ import cs151.application.CSVParser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 
 public class StudentCommentsController {
+
+    private Stage stage;
 
     @FXML private Label studentNameLabel;
     @FXML private TableView<Comment> commentsTable;
@@ -89,7 +95,8 @@ public class StudentCommentsController {
 
     @FXML
     private void onBackClick(ActionEvent event) {
-        ((Stage)((Node)event.getSource()).getScene().getWindow()).close();
+
+        changeScene(event, "/cs151/application/view/studentSearch.fxml");
     }
 
     private void showAlert(String message) {
@@ -97,5 +104,18 @@ public class StudentCommentsController {
         alert.setContentText(message);
         alert.show();
     }
-    //
+
+    protected void changeScene(ActionEvent event, String fxmlFile) {
+        try{
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent root = loader.load();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
