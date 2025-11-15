@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="cs151.application.controller.StudentSearchController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <VBox prefHeight="670" prefWidth="800" style="-fx-background-color: #93AEC4;">
+            <children>
+                <ToolBar blendMode="COLOR_BURN" prefHeight="37.0" prefWidth="696.3">
+                    <items>
+                        <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onBackToProfilePageButtonClick" text="Student Profile" />
+                    </items>
+                </ToolBar>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="807.0" text="Add Comments">
+                    <font>
+                        <Font name="Avenir Roman" size="40.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
