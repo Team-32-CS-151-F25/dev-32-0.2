@@ -130,20 +130,23 @@ public class ViewInfoStudentProfileController {
         changeScene(event, "/cs151/application/view/existingStudentProfiles.fxml");
     }
 
-        //
-        @FXML
-        private void onCommentsClick(ActionEvent event) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/studentComments.fxml"));
-            Parent root = loader.load();
-
-            StudentCommentsController controller = loader.getController();
-            controller.setStudent(student);
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Comments for " + student.getName());
-            stage.show();
-        }
+//    @FXML
+//    private void onCommentsClick(ActionEvent event) throws IOException {
+//            try{
+//            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/studentComments.fxml"));
+//            Parent root = loader.load();
+//
+//            StudentCommentsController controller = loader.getController();
+//            controller.setStudent(student);
+//
+//            stage.setScene(new Scene(root));
+//            stage.show();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        }
 
     protected void changeScene(ActionEvent event, String fxmlFile) {
         try{
