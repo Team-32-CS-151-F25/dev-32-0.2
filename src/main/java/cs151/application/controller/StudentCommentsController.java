@@ -98,7 +98,7 @@ public class StudentCommentsController {
 
         changeScene(event, "/cs151/application/view/studentSearch.fxml");
     }
-
+    //shows warning message if comment is empty
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setContentText(message);
