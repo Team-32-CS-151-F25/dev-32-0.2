@@ -23,6 +23,8 @@ import java.util.Map;
 
 public class ViewInfoStudentProfileController {
 
+    private Stage stage;
+
     @FXML
     private Label nameLabel;
     @FXML
@@ -125,10 +127,7 @@ public class ViewInfoStudentProfileController {
 
     @FXML
     private void onBackClick(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/cs151/application/view/existingStudentProfiles.fxml"));
-        stage.setScene(new Scene(root));
-        stage.show();
+        changeScene(event, "/cs151/application/view/existingStudentProfiles.fxml");
     }
 
         //
@@ -145,6 +144,19 @@ public class ViewInfoStudentProfileController {
             stage.setTitle("Comments for " + student.getName());
             stage.show();
         }
+
+    protected void changeScene(ActionEvent event, String fxmlFile) {
+        try{
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent root = loader.load();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 //
 
 
