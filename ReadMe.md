@@ -5,9 +5,9 @@
 Student Hub allows professor to create and manage student profiles, by storing basic student information, skills, interests, and evaluations. It’s a comprehensive tool that helps maintain record of students’ academic and professional development.
 ## who did what:
 Version 0.8:
-1. Samipya Bhusal:
-2. Reena Boddukuri:
-3. Jennifer Lucero:
+1. Samipya Bhusal: Back-End
+2. Reena Boddukuri: Back-End
+3. Jennifer Lucero: Back-End
 4. Anthony Robinson:
 
 Version 0.7:
