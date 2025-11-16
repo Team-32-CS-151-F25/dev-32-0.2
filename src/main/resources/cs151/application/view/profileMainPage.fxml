@@ -30,7 +30,7 @@
                            <font>
                               <Font size="20.0" />
                            </font></Button>
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onSearchProfileClick" prefHeight="40.0" prefWidth="349.0" text="Search, Edit Profiles, Add Comments" translateX="225.0" translateY="200.0">
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onSearchProfileClick" prefHeight="40.0" prefWidth="380.0" text="Search, Edit Profiles, Add/View Comments" translateX="225.0" translateY="200.0">
                            <font>
                               <Font size="20.0" />
                            </font></Button>
