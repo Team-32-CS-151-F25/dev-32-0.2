@@ -51,7 +51,7 @@ public class ViewInfoStudentProfileController {
 
 
     private Student student;
-
+    private Stage stage;
 
     // would be called when this page is loaded from the table
     public void setStudent(Student student) {
@@ -108,19 +108,6 @@ public class ViewInfoStudentProfileController {
         studentInfoTable.setPrefWidth(500);
         studentInfoTable.setMinWidth(500);
 
-
-
-        /*
-        nameLabel.setText("Name: " + student.getName());
-        statusLabel.setText("Academic Status: " + student.getAcademicStatus());
-        employmentLabel.setText("Job Status: " + student.getJobStatus());
-        jobDetailsLabel.setText("Job Details: "+student.getJobDetails());
-        languagesLabel.setText("Programming Languages: " + student.getProgrammingLang());
-        databasesLabel.setText("Databases: " + student.getDatabases());
-        roleLabel.setText("Preferred Role: " + student.getPreferredRole());
-        flagLabel.setText("Flag: " + student.getFlags());
-        evaluationLabel.setText("Evaluation: " + student.getEvaluation());
-         */
     }
 
     @FXML
@@ -131,21 +118,40 @@ public class ViewInfoStudentProfileController {
         stage.show();
     }
 
-        //
-        @FXML
-        private void onCommentsClick(ActionEvent event) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/studentComments.fxml"));
+     @FXML
+     private void onCommentsClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/studentComments.fxml"));
+        Parent root = loader.load();
+
+        StudentCommentsController controller = loader.getController();
+        controller.setStudent(student);
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Comments for " + student.getName());
+        stage.show();
+    }
+
+    protected void changeScene(ActionEvent event, String fxmlFile) {
+        try{
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
-
-            StudentCommentsController controller = loader.getController();
-            controller.setStudent(student);
-
-            Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Comments for " + student.getName());
             stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-//
+    }
 
+    @FXML
+    protected void onHomeButtonClick(ActionEvent event) {
+        changeScene(event, "/cs151/application/view/hello-view.fxml");
+    }
 
+    //navigate to student profile page
+    @FXML
+    protected void onStudentProfileButtonClick(ActionEvent event){
+        changeScene(event, "/cs151/application/view/profileMainPage.fxml");
+    }
 }
