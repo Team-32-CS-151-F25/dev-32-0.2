@@ -109,7 +109,7 @@ public class StudentProfile {
 
     //method to add evaluations
     static class Evaluation {
-        private static final CSVParser evaluationParser = new CSVParser("src/main/resources/data/evaluations.csv");
+        private static final CSVParser evaluationParser = new CSVParser("src/main/resources/data/comments.csv");
 
         public static void setEvaluation(String evaluation) throws IOException {
             //need to check if the student name already exists,
@@ -117,21 +117,21 @@ public class StudentProfile {
             String[] evaluations;
             ArrayList<String> names =  new ArrayList<>();
             //get all the names of the students who have an evaluation
-            while ((evaluations = evaluationParser.getLineArray()) != null){
-                names.add(evaluations[0]);
-            }
-            //the index of student Name will correspond to the line the student evaluation is stored in
-            if (names.contains(studentName)) {
-                int lineNum = names.indexOf(studentName);
-                evaluationParser.updateLine(LocalDate.now().toString(),lineNum,1);
-                evaluationParser.updateLine(evaluation,lineNum,1);
-
-            }else {
+//            while ((evaluations = evaluationParser.getLineArray()) != null){
+//                names.add(evaluations[0]);
+//            }
+//            //the index of student Name will correspond to the line the student evaluation is stored in
+//            if (names.contains(studentName)) {
+//                int lineNum = names.indexOf(studentName);
+//                evaluationParser.updateLine(LocalDate.now().toString(),lineNum,1);
+//                evaluationParser.updateLine(evaluation,lineNum,1);
+//
+//            }else {
                 evaluationParser.setData(studentName);
                 evaluationParser.setData(evaluation);
                 evaluationParser.setData(LocalDate.now().toString());
                 evaluationParser.addNewLine();
-            }
+            //}
         }
 
         public static List<List<String>> getAllData() {
@@ -146,9 +146,13 @@ public class StudentProfile {
 
         public static void removeStudentData(String name) throws IOException {
             ArrayList<String> names = evaluationParser.getFirstValues();
-            if(names.contains(name)){
-                int lineNum = names.indexOf(name);
-                evaluationParser.removeLine(lineNum);
+            int size = names.size();
+
+            for(int line = size-1; line >= 0; line--) {
+                if(names.get(line).equals(name)) {
+                    int lineNum = line;
+                    evaluationParser.removeLine(lineNum);
+                }
             }
         }
     }

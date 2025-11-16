@@ -88,7 +88,18 @@ public class StudentSearchController {
             preferredRole = (skillData.get(i).get((skillData.get(i).indexOf("Role")+1)));
 
             flags = (flagData.get(i).get(1));
-            evaluation = (evaluationData.get(i).get(1));
+//            while(evaluationData.get(i).contains(name))
+//                evaluation = (evaluationData.get(i).get(1));
+
+            //each student may have more than one comments (new comments are added at last)
+            //loop from the last entry and if the student name is found get that comment
+            //and break from the loop
+            for(int line = evaluationData.size()-1; line >= 0; line--) {
+                if(evaluationData.get(line).get(0).equals(name)) {
+                    evaluation = evaluationData.get(line).get(1);
+                    break;
+                }
+            }
 
             students.add(new Student(name, academicStatus, jobStatus, jobDetails,
                     programmingLang, databases, preferredRole,
