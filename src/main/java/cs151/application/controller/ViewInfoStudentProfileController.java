@@ -160,7 +160,5 @@ public class ViewInfoStudentProfileController {
             e.printStackTrace();
         }
     }
-//
-
 
 }

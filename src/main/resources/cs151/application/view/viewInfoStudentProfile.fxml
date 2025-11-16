@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0" spacing="10" style="-fx-background-color: #93AEC4;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.controller.ViewInfoStudentProfileController">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0" spacing="10" style="-fx-background-color: #93AEC4;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.controller.ViewInfoStudentProfileController">
 
     <!--
     <Label layoutX="246.0" prefHeight="120.0" prefWidth="210.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Student Profile" translateX="10.0">
