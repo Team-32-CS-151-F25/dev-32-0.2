@@ -1,5 +1,6 @@
-Tish Rabe,Whitelist
-Percy Jackson,Whitelist
 Cinder Linh,Whitelist
-Jane Doe,Whitelist
 John Doe,Whitelist
+Annabeth Chase,Whitelist
+Percy Jackson,Blacklist
+Jane Doe,Blacklist
+Tish Rabe,Blacklist

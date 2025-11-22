@@ -1,5 +1,6 @@
-Tish Rabe,Programming Language,C++,Python,Databases,MongoDB,Role,Front-End
-Percy Jackson,Programming Language,C++,Java,Python,Databases,MySQL,Postgres,MongoDB,Role,Back-End
-Cinder Linh,Programming Language,Java,Python,Databases,MySQL,MongoDB,Role,Data
-Jane Doe,Programming Language,Java,Python,Databases,MySQL,Role,Full-Stack
-John Doe,Programming Language,C++,Python,Databases,Postgres,Role,Full-Stack
+Cinder Linh,Programming Language,Java,Python,Databases,MySQL,MongoDB,Role,Back-End
+John Doe,Programming Language,Java,Python,Databases,MySQL,Postgres,Role,Data
+Annabeth Chase,Programming Language,C++,Python,Databases,MySQL,Postgres,Role,Other
+Percy Jackson,Programming Language,Java,Databases,MongoDB,Role,Other
+Jane Doe,Programming Language,C++,Python,Databases,Postgres,Role,Full-Stack
+Tish Rabe,Programming Language,Java,Python,Databases,MySQL,MongoDB,Role,Front-End
