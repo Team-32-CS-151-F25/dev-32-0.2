@@ -8,6 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.controller.ReportController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670" prefWidth="800" style="-fx-background-color: #93AEC4;">
@@ -29,10 +32,18 @@
                     <children>
                         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="400.0">
                             <children>
-                            </children>
-                        </VBox>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="400.0">
-                            <children>
+                                <TableView fx:id="studentTableView" maxWidth="799.0" onKeyTyped="#onSearchFieldEnter" prefHeight="434.0" prefWidth="760.0" translateX="200.0">
+                                    <columns>
+                                        <TableColumn fx:id="studentNameColumn" editable="false" maxWidth="430.0" minWidth="101.0" prefWidth="183.5" text="Student Name" />
+                                        <TableColumn fx:id="flagsColumn" prefWidth="174.5" text="Flags" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </VBox.margin>
+                                </TableView>
                             </children>
                         </VBox>
                     </children>
