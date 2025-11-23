@@ -42,6 +42,8 @@ public class StudentInfoController {
         private Label roleLabel;
         @FXML
         private Label flagLabel;
+    @FXML
+    private Label evaluationLabel;
 
 
         @FXML
@@ -87,55 +89,55 @@ public class StudentInfoController {
             valueColumn.setCellValueFactory(data ->
                     new SimpleStringProperty(data.getValue().getValue()));
 
-//            // this one is specifically complicated to adjust for the evaluations value - tony
-//            valueColumn.setCellFactory(col -> new TableCell<>() {
-//                private final Label lbl = new Label();
-//
-//                {
-//                    lbl.setWrapText(true);
-//                    lbl.setFont(new Font(14));
-//                    lbl.setMaxWidth(350);
-//                }
-//
-//                @Override
-//                protected void updateItem(String value, boolean empty) {
-//                    super.updateItem(value, empty);
-//
-//                    if (empty || value == null) {
-//                        setText(null);
-//                        setGraphic(null);
-//                        setPrefHeight(35);
-//                        return;
-//                    }
-//
-//                    String key = getTableView().getItems().get(getIndex()).getKey();
-//
-//                    if ("Evaluation".equals(key)) {
-//
-//                        commentColumn.setText(value);
-//                        lbl.setText(value);
-//
-//                        // vbox helps height setting
-//                        VBox vbox = new VBox(lbl);
-//                        vbox.setPrefWidth(valueColumn.getWidth());
-//                        vbox.setMinHeight(Region.USE_PREF_SIZE);
-//                        vbox.setMaxHeight(Region.USE_COMPUTED_SIZE);
-//
-//                        setGraphic(vbox);
-//                        setText(null);
-//
-//                        // force layout so height is correctly calculated
-//                        vbox.applyCss();
-//                        vbox.layout();
-//
-//                        getTableRow().setPrefHeight(lbl.getHeight() + 20); // padding
-//                    } else {
-//                        setText(value);
-//                        setGraphic(null);
-//                        getTableRow().setPrefHeight(35);
-//                    }
-//                }
-//            });
+            // this one is specifically complicated to adjust for the evaluations value - tony
+            valueColumn.setCellFactory(col -> new TableCell<>() {
+                private final Label lbl = new Label();
+
+                {
+                    lbl.setWrapText(true);
+                    lbl.setFont(new Font(14));
+                    lbl.setMaxWidth(350);
+                }
+
+                @Override
+                protected void updateItem(String value, boolean empty) {
+                    super.updateItem(value, empty);
+
+                    if (empty || value == null) {
+                        setText(null);
+                        setGraphic(null);
+                        setPrefHeight(35);
+                        return;
+                    }
+
+                    String key = getTableView().getItems().get(getIndex()).getKey();
+
+                    if ("Evaluation".equals(key)) {
+
+                        commentColumn.setText(value);
+                        lbl.setText(value);
+
+                        // vbox helps height setting
+                        VBox vbox = new VBox(lbl);
+                        vbox.setPrefWidth(valueColumn.getWidth());
+                        vbox.setMinHeight(Region.USE_PREF_SIZE);
+                        vbox.setMaxHeight(Region.USE_COMPUTED_SIZE);
+
+                        setGraphic(vbox);
+                        setText(null);
+
+                        // force layout so height is correctly calculated
+                        vbox.applyCss();
+                        vbox.layout();
+
+                        getTableRow().setPrefHeight(lbl.getHeight() + 20); // padding
+                    } else {
+                        setText(value);
+                        setGraphic(null);
+                        getTableRow().setPrefHeight(35);
+                    }
+                }
+            });
 
 
             studentInfoTable.setItems(items);
@@ -175,22 +177,22 @@ public class StudentInfoController {
                 }
             });
 
-            populateEvaluationsTable(student);
+            //populateEvaluationsTable(student);
         }
 
-        private void populateEvaluationsTable(Student student) {
-            ObservableList<EvaluationRow> items = FXCollections.observableArrayList();
-            List<List<String>> evaluationRecord = Faculty.getStudentEvaluationRecord();
-            for (List<String> row : evaluationRecord) {
-                if (row.get(0).equals(student.getName())) {
-                    EvaluationRow evaluationRow = new EvaluationRow(row.get(1), row.size() > 2 ? row.get(2) : "");
-                    items.add(evaluationRow);
-                }
-            }
-            evaluationsTable.setItems(items);
-            commentColumn.setCellValueFactory(new PropertyValueFactory<>("comment"));
-            commentsDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        }
+//        private void populateEvaluationsTable(Student student) {
+//            ObservableList<EvaluationRow> items = FXCollections.observableArrayList();
+//            List<List<String>> evaluationRecord = Faculty.getStudentEvaluationRecord();
+//            for (List<String> row : evaluationRecord) {
+//                if (row.get(0).equals(student.getName())) {
+//                    EvaluationRow evaluationRow = new EvaluationRow(row.get(1), row.size() > 2 ? row.get(2) : "");
+//                    items.add(evaluationRow);
+//                }
+//            }
+//            evaluationsTable.setItems(items);
+//            commentColumn.setCellValueFactory(new PropertyValueFactory<>("comment"));
+//            commentsDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+//        }
 
 
 

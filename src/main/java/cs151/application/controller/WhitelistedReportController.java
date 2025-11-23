@@ -134,9 +134,27 @@ public class WhitelistedReportController {
 
 
         @FXML
-        protected void DoubleCLick(Student student) {
+        protected void DoubleCLick(Student selectedStudent) {
 
-            System.out.println(student.getName());
+
+                if (selectedStudent != null) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/reportViewStudent.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                    // Passing the selected student to the new controller
+                    StudentInfoController controller = loader.getController();
+                    controller.setStudent(selectedStudent);
+
+                    Stage stage = (Stage) studentTableView.getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                }
+
         }
 
 
@@ -168,6 +186,8 @@ public class WhitelistedReportController {
     public void onReportsButtonClick(ActionEvent event) {
         changeScene(event, "/cs151/application/view/reportMainPage.fxml");
     }
+
+
 
 
 }
