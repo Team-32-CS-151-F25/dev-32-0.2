@@ -39,10 +39,10 @@
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                             </columnResizePolicy>
                         </TableView>
-                        <TableView fx:id="commentsTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="700.0" translateX="31.0">
+                        <TableView fx:id="evaluationsTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="700.0" translateX="31.0">
                             <columns>
                                 <TableColumn fx:id="commentColumn" prefWidth="500" text="Comment" />
-                                <TableColumn fx:id="dateColumn" prefWidth="258" text="Date" />
+                                <TableColumn fx:id="commentsDate" prefWidth="258" text="Date" />
                             </columns>
                             <VBox.margin>
                                 <Insets bottom="20" left="20" right="20" top="20" />
