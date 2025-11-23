@@ -82,7 +82,9 @@ public class ExistingStudentProfileController {
             preferredRole = (skillData.get(i).get((skillData.get(i).indexOf("Role")+1)));
 
             flags = (flagData.get(i).get(1));
-            evaluation = (evaluationData.get(i).get(1));
+            // evaluation = (evaluationData.get(i).get(1));
+            evaluation = findLatestEvaluationFor(name);
+
 
             students.add(new Student(name, academicStatus, jobStatus, jobDetails,
                     programmingLang, databases, preferredRole,
@@ -145,6 +147,19 @@ public class ExistingStudentProfileController {
             stage.setScene(new Scene(root));
             stage.show();
         }
+    }
+
+    // method to find last matching row for evaluation parsing - tony
+    private String findLatestEvaluationFor(String studentName) {
+        List<List<String>> evaluationData = Faculty.getStudentEvaluationRecord();
+        String latest = "";
+
+        for (List<String> row : evaluationData) {
+            if (row.get(0).equals(studentName)) {
+                latest = row.get(1);  // last matching row = latest evaluation, hopefully
+            }
+        }
+        return latest;
     }
 
 

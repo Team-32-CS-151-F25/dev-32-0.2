@@ -12,14 +12,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.List;
 
 public class ViewInfoStudentProfileController {
 
@@ -68,24 +69,75 @@ public class ViewInfoStudentProfileController {
         info.put("Databases", student.getDatabases());
         info.put("Preferred Role", student.getPreferredRole());
         info.put("Flag", student.getFlags());
-        info.put("Evaluation", student.getEvaluation());
-
+        info.put("Evaluation", getAllEvaluationsFor(student.getName()));
 
         ObservableList<Map.Entry<String, String>> items =
                 FXCollections.observableArrayList(info.entrySet());
 
-        attributeColumn.setCellValueFactory(
-                data -> new SimpleStringProperty(data.getValue().getKey()));
-        valueColumn.setCellValueFactory(
-                data -> new SimpleStringProperty(data.getValue().getValue()));
+        // Attribute column
+        attributeColumn.setCellValueFactory(data ->
+                new SimpleStringProperty(data.getValue().getKey()));
 
-        // fill table - tony
+        // Value column with wrapping for Evaluation
+        valueColumn.setCellValueFactory(data ->
+                new SimpleStringProperty(data.getValue().getValue()));
+
+        // this one is specifically complicated to adjust for the evaluations value - tony
+        valueColumn.setCellFactory(col -> new TableCell<>() {
+            private final Label lbl = new Label();
+
+            {
+                lbl.setWrapText(true);
+                lbl.setFont(new Font(14));
+                lbl.setMaxWidth(350);
+            }
+
+            @Override
+            protected void updateItem(String value, boolean empty) {
+                super.updateItem(value, empty);
+
+                if (empty || value == null) {
+                    setText(null);
+                    setGraphic(null);
+                    setPrefHeight(35);
+                    return;
+                }
+
+                String key = getTableView().getItems().get(getIndex()).getKey();
+
+                if ("Evaluation".equals(key)) {
+                    lbl.setText(value);
+
+                    // vbox helps height setting
+                    VBox vbox = new VBox(lbl);
+                    vbox.setPrefWidth(valueColumn.getWidth());
+                    vbox.setMinHeight(Region.USE_PREF_SIZE);
+                    vbox.setMaxHeight(Region.USE_COMPUTED_SIZE);
+
+                    setGraphic(vbox);
+                    setText(null);
+
+                    // force layout so height is correctly calculated
+                    vbox.applyCss();
+                    vbox.layout();
+
+                    getTableRow().setPrefHeight(lbl.getHeight() + 20); // padding
+                } else {
+                    setText(value);
+                    setGraphic(null);
+                    getTableRow().setPrefHeight(35);
+                }
+            }
+        });
+
+
         studentInfoTable.setItems(items);
 
+        // Column widths
         attributeColumn.setPrefWidth(150);
         valueColumn.setPrefWidth(350);
 
-        // hides table header - tony
+        // Hide table header
         studentInfoTable.skinProperty().addListener((obs, oldSkin, newSkin) -> {
             Node header = studentInfoTable.lookup("TableHeaderRow");
             if (header != null && header.isVisible()) {
@@ -98,32 +150,29 @@ public class ViewInfoStudentProfileController {
             }
         });
 
-        // hides empty rows at the bottom for prettiness - tony
-        studentInfoTable.setFixedCellSize(35);
-        studentInfoTable.prefHeightProperty().bind(
-                studentInfoTable.fixedCellSizeProperty()
-                        .multiply(Bindings.size(studentInfoTable.getItems()))
-                        .add(2)
-        );
-
+        // fix table width
         studentInfoTable.setMaxWidth(500);
         studentInfoTable.setPrefWidth(500);
         studentInfoTable.setMinWidth(500);
 
+        // set default height for rows that are NOT evaluation - tony
+        studentInfoTable.setRowFactory(tv -> new TableRow<>() {
+            @Override
+            protected void updateItem(Map.Entry<String, String> item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) return;
 
-
-        /*
-        nameLabel.setText("Name: " + student.getName());
-        statusLabel.setText("Academic Status: " + student.getAcademicStatus());
-        employmentLabel.setText("Job Status: " + student.getJobStatus());
-        jobDetailsLabel.setText("Job Details: "+student.getJobDetails());
-        languagesLabel.setText("Programming Languages: " + student.getProgrammingLang());
-        databasesLabel.setText("Databases: " + student.getDatabases());
-        roleLabel.setText("Preferred Role: " + student.getPreferredRole());
-        flagLabel.setText("Flag: " + student.getFlags());
-        evaluationLabel.setText("Evaluation: " + student.getEvaluation());
-         */
+                if (!"Evaluation".equals(item.getKey())) {
+                    setPrefHeight(35);
+                }
+            }
+        });
     }
+
+
+
+
+
 
     @FXML
     private void onBackClick(ActionEvent event) throws IOException {
@@ -147,6 +196,20 @@ public class ViewInfoStudentProfileController {
 //            e.printStackTrace();
 //        }
 //        }
+
+
+    private String getAllEvaluationsFor(String studentName) {
+        StringBuilder sb = new StringBuilder();
+
+        for (List<String> row : cs151.application.Faculty.getStudentEvaluationRecord()) {
+            if (row.get(0).equals(studentName)) {
+                if (sb.length() > 0) sb.append("\n");
+                sb.append(row.get(1));
+            }
+        }
+
+        return sb.toString();
+    }
 
     protected void changeScene(ActionEvent event, String fxmlFile) {
         try{
