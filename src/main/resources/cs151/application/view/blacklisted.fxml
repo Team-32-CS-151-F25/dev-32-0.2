@@ -16,8 +16,11 @@
                     <items>
                         <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
                     </items>
+                    <items>
+                        <Button mnemonicParsing="false" onAction="#onReportsButtonClick" text="Reports" />
+                    </items>
                 </ToolBar>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="800.0" text="Reports" translateY="15.0">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="800.0" text="Blacklisted" translateY="15.0">
                     <font>
                         <Font name="Avenir Roman" size="60.0" />
                     </font>
@@ -26,18 +29,10 @@
                     <children>
                         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="400.0">
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="184.0" text="Whitelisted" onAction = "#onWhitelistReportClick" translateX="145.0" translateY="175.0">
-                                    <font>
-                                        <Font size="25.0" />
-                                    </font></Button>
                             </children>
                         </VBox>
                         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="400.0">
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="184.0" text="Blacklisted" onAction="#onBlacklistReportClick" translateX="65.0" translateY="175.0">
-                                    <font>
-                                        <Font size="25.0" />
-                                    </font></Button>
                             </children>
                         </VBox>
                     </children>

@@ -72,6 +72,8 @@ public class MainController {
         changeScene(event, "/cs151/application/view/editProfile.fxml");
     }
 
+
+
     @FXML
     protected void onAddLanguageClick(ActionEvent event) throws IOException {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
