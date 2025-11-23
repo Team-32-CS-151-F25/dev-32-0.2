@@ -35,7 +35,6 @@
                                 <TableView fx:id="studentTableView" maxWidth="799.0" onKeyTyped="#onSearchFieldEnter" prefHeight="434.0" prefWidth="760.0" translateX="200.0">
                                     <columns>
                                         <TableColumn fx:id="studentNameColumn" editable="false" maxWidth="430.0" minWidth="101.0" prefWidth="183.5" text="Student Name" />
-                                        <TableColumn fx:id="flagsColumn" prefWidth="174.5" text="Flags" />
                                     </columns>
                                     <columnResizePolicy>
                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
