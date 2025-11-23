@@ -1,5 +1,6 @@
 package cs151.application.controller;
 
+import cs151.application.Comment;
 import cs151.application.Faculty;
 import cs151.application.Student;
 import javafx.beans.property.SimpleStringProperty;
@@ -20,6 +21,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,15 +56,13 @@ public class StudentInfoController {
         @FXML
         private TableColumn<Map.Entry<String, String>, String> valueColumn;
 
-        @FXML TableView<EvaluationRow> evaluationsTable;
+        @FXML TableView<Comment> evaluationsTable;
         @FXML
-        private TableColumn<EvaluationRow, String> commentColumn;
+        private TableColumn<Comment, String> commentColumn;
         @FXML
-        private TableColumn<EvaluationRow, String> commentsDate;
-
+        private TableColumn<Comment, LocalDate> commentsDate;
 
         private Student student;
-
 
         // would be called when this page is loaded from the table
         public void setStudent(Student student) {
@@ -182,51 +182,45 @@ public class StudentInfoController {
         }
 
         private void populateEvaluationsTable(Student student) {
-            ObservableList<EvaluationRow> items = FXCollections.observableArrayList();
+            ObservableList<Comment> items = FXCollections.observableArrayList();
             List<List<String>> evaluationRecord = Faculty.getStudentEvaluationRecord();
             for (List<String> row : evaluationRecord) {
                 if (row.get(0).equals(student.getName())) {
-                    EvaluationRow evaluationRow = new EvaluationRow(row.get(1), row.size() > 2 ? row.get(2) : "");
-                    System.out.println(evaluationRow.getComment() + " " + evaluationRow.getDate());
+                    Comment evaluationRow = new Comment(row.get(1), LocalDate.parse(row.get(2)));
                     items.add(evaluationRow);
                 }
             }
             evaluationsTable.setItems(items);
 
 // Cell value factories (no reflection needed)
-            commentColumn.setCellValueFactory(c ->
-                    new javafx.beans.property.ReadOnlyStringWrapper(c.getValue().getComment()));
-            commentsDate.setCellValueFactory(c ->
-                    new javafx.beans.property.ReadOnlyStringWrapper(c.getValue().getDate()));
+            commentColumn.setCellValueFactory(new PropertyValueFactory<>("text"));
+            commentsDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         }
 
 
 
-
-
-        @FXML
-        private void onBackClick(ActionEvent event) throws IOException {
-            changeScene(event, "/cs151/application/view/existingStudentProfiles.fxml");
-        }
-
-        // formats info from comments.csv for the evaluations row
-        private String getAllEvaluationsFor(String studentName) {
-            StringBuilder sb = new StringBuilder();
-
-            for (List<String> row : cs151.application.Faculty.getStudentEvaluationRecord()) {
-                if (row.get(0).equals(studentName)) {
-                    String evaluation = row.get(1);
-                    String date = row.size() > 2 ? row.get(2) : ""; // get the date if present
-                    if (sb.length() > 0) sb.append("\n");
-                    sb.append(date).append(": ").append(evaluation);
-                }
+    @FXML
+    protected void onCommentClicked() {
+        ObservableList<Comment> selectedComment = evaluationsTable.getSelectionModel().getSelectedItems();
+        if (selectedComment != null) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/viewSpecificComment.fxml"));
+            Parent root = null;
+            try {
+                root = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
 
-            return sb.toString();
+            // Passing the selected comment to the new controller
+            ViewSpecificCommentController controller = loader.getController();
+            controller.setComment(selectedComment.get(0));
+
+
+            Stage stage = (Stage) evaluationsTable.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
         }
-
-
-
+    }
         protected void changeScene(ActionEvent event, String fxmlFile) {
             try{
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -254,17 +248,5 @@ public class StudentInfoController {
     protected void onHomeButtonClick(ActionEvent event) {
         changeScene(event, "/cs151/application/view/hello-view.fxml");
     }
-}
-
-class EvaluationRow {
-    private final String comment;
-    private final String date;
-
-    public EvaluationRow(String comment, String date) {
-        this.comment = comment;
-        this.date = date;
-    }
-    public String getComment() { return comment; }
-    public String getDate() { return date; }
 }
 

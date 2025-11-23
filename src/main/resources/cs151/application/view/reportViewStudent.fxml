@@ -39,7 +39,7 @@
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                             </columnResizePolicy>
                         </TableView>
-                        <TableView fx:id="evaluationsTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="700.0" translateX="31.0">
+                        <TableView fx:id="evaluationsTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onCommentClicked" prefHeight="250.0" prefWidth="700.0" translateX="31.0">
                             <columns>
                                 <TableColumn fx:id="commentColumn" prefWidth="500" text="Comment" />
                                 <TableColumn fx:id="commentsDate" prefWidth="258" text="Date" />
