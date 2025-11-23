@@ -197,19 +197,22 @@ public class ViewInfoStudentProfileController {
 //        }
 //        }
 
-
+    // formats info from comments.csv for the evaluations row
     private String getAllEvaluationsFor(String studentName) {
         StringBuilder sb = new StringBuilder();
 
         for (List<String> row : cs151.application.Faculty.getStudentEvaluationRecord()) {
             if (row.get(0).equals(studentName)) {
+                String evaluation = row.get(1);
+                String date = row.size() > 2 ? row.get(2) : ""; // get the date if present
                 if (sb.length() > 0) sb.append("\n");
-                sb.append(row.get(1));
+                sb.append(date).append(": ").append(evaluation);
             }
         }
 
         return sb.toString();
     }
+
 
     protected void changeScene(ActionEvent event, String fxmlFile) {
         try{
