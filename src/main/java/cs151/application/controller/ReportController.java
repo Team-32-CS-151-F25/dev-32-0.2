@@ -18,10 +18,10 @@ import java.io.IOException;
 
 public class ReportController {
     private Stage stage;
-    @FXML private TextField searchEntry;
-    @FXML private TableView<Student> studentTableView;
-    private ObservableList<Student> students;
-    private ObservableList<Student> matchedStudents;
+   // @FXML private TextField searchEntry;
+//    @FXML private TableView<Student> studentTableView;
+//    private ObservableList<Student> students;
+//    private ObservableList<Student> matchedStudents;
 
 
     protected void changeScene(ActionEvent event, String fxmlFile) {
@@ -57,40 +57,40 @@ public class ReportController {
         changeScene(event, "/cs151/application/view/blacklisted.fxml");
     }
 
-    @FXML
-    protected void onSearchFieldEnter(KeyEvent event) {
+//    @FXML
+//    protected void onSearchFieldEnter(KeyEvent event) {
+//
+//        searchStudent();
+//    }
 
-        searchStudent();
-    }
-
-    @FXML
-    private void searchStudent() {
-        String searchText = searchEntry.getText();
-        if(searchText.isEmpty()) {
-            studentTableView.setItems(students);
-            return;
-        }
-
-        searchText = searchText.trim();
-        String[] searchTexts = searchText.split(" ", -1);
-
-
-        matchedStudents = FXCollections.observableArrayList();
-        for (Student student : students) {
-            String allText;
-            allText = student.getName() + student.getAcademicStatus() + student.getJobStatus() +
-                    student.getJobDetails() + student.getProgrammingLang() + student.getDatabases() +
-                    student.getPreferredRole() + student.getFlags() + student.getEvaluation();
-            for(String searchItem : searchTexts) {
-                if (allText.toLowerCase().contains(searchItem.toLowerCase())) {
-                    if(!matchedStudents.contains(student))
-                        matchedStudents.add(student);
-                }
-            }
-        }
-        studentTableView.setItems(matchedStudents);
-
-
-    }
+//    @FXML
+//    private void searchStudent() {
+//        String searchText = searchEntry.getText();
+//        if(searchText.isEmpty()) {
+//            studentTableView.setItems(students);
+//            return;
+//        }
+//
+//        searchText = searchText.trim();
+//        String[] searchTexts = searchText.split(" ", -1);
+//
+//
+//        matchedStudents = FXCollections.observableArrayList();
+//        for (Student student : students) {
+//            String allText;
+//            allText = student.getName() + student.getAcademicStatus() + student.getJobStatus() +
+//                    student.getJobDetails() + student.getProgrammingLang() + student.getDatabases() +
+//                    student.getPreferredRole() + student.getFlags() + student.getEvaluation();
+//            for(String searchItem : searchTexts) {
+//                if (allText.toLowerCase().contains(searchItem.toLowerCase())) {
+//                    if(!matchedStudents.contains(student))
+//                        matchedStudents.add(student);
+//                }
+//            }
+//        }
+//        studentTableView.setItems(matchedStudents);
+//
+//
+//    }
 
 }
