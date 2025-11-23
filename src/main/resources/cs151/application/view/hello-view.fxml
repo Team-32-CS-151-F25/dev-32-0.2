@@ -42,7 +42,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button disable="true" mnemonicParsing="false" prefHeight="36.0" prefWidth="124.0" text="Generate Reports">
+                  <Button disable="false" mnemonicParsing="false" onAction="#onGenerateReportButtonClick" prefHeight="36.0" prefWidth="124.0" text="Generate Reports">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>

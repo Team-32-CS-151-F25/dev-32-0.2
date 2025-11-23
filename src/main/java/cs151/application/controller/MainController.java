@@ -46,6 +46,12 @@ public class MainController {
         changeScene(event, "/cs151/application/view/profileMainPage.fxml");
     }
 
+    //navigate to generating reports page
+    @FXML
+    protected void onGenerateReportButtonClick(ActionEvent event){
+        changeScene(event, "/cs151/application/view/reportMainPage.fxml");
+    }
+
     @FXML
     protected void onCreateNewProfileClick(ActionEvent event){
         changeScene(event, "/cs151/application/view/studentProfile.fxml");
