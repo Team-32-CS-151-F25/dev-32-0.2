@@ -25,18 +25,8 @@ public class BlacklistedReportController {
         @FXML
         private TableView<Student> studentTableView;
         @FXML private TableColumn<Student, String> studentNameColumn;
-        @FXML private TableColumn<Student, String> academicStatusColumn;
-        @FXML private TableColumn<Student, String> jobColumn;
-        @FXML private TableColumn<Student, String> jobDetailsColumn;
-        @FXML private TableColumn<Student, String> programmingLangColumn;
-        @FXML private TableColumn<Student, String> databasesColumn;
-        @FXML private TableColumn<Student, String> preferredRoleColumn;
-        @FXML private TableColumn<Student, String> flagsColumn;
-        @FXML private TableColumn<Student, String> evaluationColumn;
-        @FXML private TextField searchEntry;
 
         private ObservableList<Student> students;
-        private ObservableList<Student> matchedStudents;
 
         //initialize method
         //get the data from filedata in parser and add it
@@ -86,8 +76,6 @@ public class BlacklistedReportController {
                 preferredRole = (skillData.get(i).get((skillData.get(i).indexOf("Role")+1)));
 
                 flags = (flagData.get(i).get(1));
-//            while(evaluationData.get(i).contains(name))
-//                evaluation = (evaluationData.get(i).get(1));
 
                 //each student may have more than one comments (new comments are added at last)
                 //loop from the last entry and if the student name is found get that comment
@@ -103,22 +91,13 @@ public class BlacklistedReportController {
                     students.add(new Student(name, academicStatus, jobStatus, jobDetails,
                             programmingLang, databases, preferredRole,
                             flags, evaluation));
-                    //studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
                 }
 
             }
 
             studentTableView.setItems(students);
 
-           studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-//            academicStatusColumn.setCellValueFactory(new PropertyValueFactory<>("academicStatus"));
-//            jobColumn.setCellValueFactory(new PropertyValueFactory<>("jobStatus"));
-//            jobDetailsColumn.setCellValueFactory(new PropertyValueFactory<>("jobDetails"));
-//            programmingLangColumn.setCellValueFactory(new PropertyValueFactory<>("programmingLang"));
-//            databasesColumn.setCellValueFactory(new PropertyValueFactory<>("databases"));
-//            preferredRoleColumn.setCellValueFactory(new PropertyValueFactory<>("preferredRole"));
-//            flagsColumn.setCellValueFactory(new PropertyValueFactory<>("flags"));
-//            evaluationColumn.setCellValueFactory(new PropertyValueFactory<>("evaluation"));
+            studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
             studentTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
@@ -136,9 +115,24 @@ public class BlacklistedReportController {
 
 
         @FXML
-        protected void DoubleCLick(Student student) {
+        protected void DoubleCLick(Student selectedStudent) {
+            if (selectedStudent != null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/reportViewStudent.fxml"));
+                Parent root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
 
-            System.out.println(student.getName());
+                // Passing the selected student to the new controller
+                StudentInfoController controller = loader.getController();
+                controller.setStudent(selectedStudent);
+
+                Stage stage = (Stage) studentTableView.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
         }
 
 
