@@ -5,6 +5,7 @@ import cs151.application.Student;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -177,22 +178,27 @@ public class StudentInfoController {
                 }
             });
 
-            //populateEvaluationsTable(student);
+            populateEvaluationsTable(student);
         }
 
-//        private void populateEvaluationsTable(Student student) {
-//            ObservableList<EvaluationRow> items = FXCollections.observableArrayList();
-//            List<List<String>> evaluationRecord = Faculty.getStudentEvaluationRecord();
-//            for (List<String> row : evaluationRecord) {
-//                if (row.get(0).equals(student.getName())) {
-//                    EvaluationRow evaluationRow = new EvaluationRow(row.get(1), row.size() > 2 ? row.get(2) : "");
-//                    items.add(evaluationRow);
-//                }
-//            }
-//            evaluationsTable.setItems(items);
-//            commentColumn.setCellValueFactory(new PropertyValueFactory<>("comment"));
-//            commentsDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-//        }
+        private void populateEvaluationsTable(Student student) {
+            ObservableList<EvaluationRow> items = FXCollections.observableArrayList();
+            List<List<String>> evaluationRecord = Faculty.getStudentEvaluationRecord();
+            for (List<String> row : evaluationRecord) {
+                if (row.get(0).equals(student.getName())) {
+                    EvaluationRow evaluationRow = new EvaluationRow(row.get(1), row.size() > 2 ? row.get(2) : "");
+                    System.out.println(evaluationRow.getComment() + " " + evaluationRow.getDate());
+                    items.add(evaluationRow);
+                }
+            }
+            evaluationsTable.setItems(items);
+
+// Cell value factories (no reflection needed)
+            commentColumn.setCellValueFactory(c ->
+                    new javafx.beans.property.ReadOnlyStringWrapper(c.getValue().getComment()));
+            commentsDate.setCellValueFactory(c ->
+                    new javafx.beans.property.ReadOnlyStringWrapper(c.getValue().getDate()));
+        }
 
 
 
