@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-public class WhitelistedReportController {
+public class WhitelistedTableController {
         private Stage stage;
 
         @FXML
@@ -107,7 +107,7 @@ public class WhitelistedReportController {
             }
 
             studentTableView.setItems(students);
-            
+
            studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 //            academicStatusColumn.setCellValueFactory(new PropertyValueFactory<>("academicStatus"));
 //            jobColumn.setCellValueFactory(new PropertyValueFactory<>("jobStatus"));
@@ -138,7 +138,7 @@ public class WhitelistedReportController {
 
 
                 if (selectedStudent != null) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/reportViewStudent.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/whitelistedStudentReport.fxml"));
                     Parent root = null;
                     try {
                         root = loader.load();

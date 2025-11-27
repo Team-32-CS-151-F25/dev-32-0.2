@@ -21,6 +21,7 @@
                     </items>
                     <items>
                         <Button mnemonicParsing="false" onAction="#onReportsButtonClick" text="Reports" />
+                        <Button mnemonicParsing="false" onAction="#onBlacklistButtonClick" text="Blacklist" />
                     </items>
                 </ToolBar>
                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="800.0" text="Report" translateY="15.0">

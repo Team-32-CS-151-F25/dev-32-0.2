@@ -12,18 +12,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class BlacklistedReportController {
+public class BlacklistedTableController {
         private Stage stage;
 
-        @FXML
-        private TableView<Student> studentTableView;
+        @FXML private TableView<Student> studentTableView;
         @FXML private TableColumn<Student, String> studentNameColumn;
 
         private ObservableList<Student> students;
@@ -117,7 +113,7 @@ public class BlacklistedReportController {
         @FXML
         protected void DoubleCLick(Student selectedStudent) {
             if (selectedStudent != null) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/reportViewStudent.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs151/application/view/blacklistedStudentReport.fxml"));
                 Parent root = null;
                 try {
                     root = loader.load();
@@ -160,10 +156,10 @@ public class BlacklistedReportController {
             changeScene(event, "/cs151/application/view/profileMainPage.fxml");
         }
 
-    @FXML
-    public void onReportsButtonClick(ActionEvent event) {
-        changeScene(event, "/cs151/application/view/reportMainPage.fxml");
-    }
+        @FXML
+        public void onReportsButtonClick(ActionEvent event) {
+            changeScene(event, "/cs151/application/view/reportMainPage.fxml");
+        }
 
 
 }

@@ -45,8 +45,8 @@ public class StudentInfoController {
         private Label roleLabel;
         @FXML
         private Label flagLabel;
-    @FXML
-    private Label evaluationLabel;
+        @FXML
+        private Label evaluationLabel;
 
 
         @FXML
@@ -55,8 +55,8 @@ public class StudentInfoController {
         private TableColumn<Map.Entry<String, String>, String> attributeColumn;
         @FXML
         private TableColumn<Map.Entry<String, String>, String> valueColumn;
-
-        @FXML TableView<Comment> evaluationsTable;
+        @FXML
+        TableView<Comment> evaluationsTable;
         @FXML
         private TableColumn<Comment, String> commentColumn;
         @FXML
@@ -247,6 +247,16 @@ public class StudentInfoController {
     @FXML
     protected void onHomeButtonClick(ActionEvent event) {
         changeScene(event, "/cs151/application/view/hello-view.fxml");
+    }
+
+    @FXML
+    public void onWhitelistButtonClick(ActionEvent event) {
+        changeScene(event, "/cs151/application/view/whitelisted.fxml");
+    }
+
+    @FXML
+    public void onBlacklistButtonClick(ActionEvent event) {
+        changeScene(event, "/cs151/application/view/blacklisted.fxml");
     }
 }
 
