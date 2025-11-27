@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs151.application.controller.BlacklistedReportController">
+    <children>
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670" prefWidth="800" style="-fx-background-color: #93AEC4;">
+            <children>
+                <ToolBar blendMode="COLOR_BURN" prefHeight="37.0" prefWidth="632.0">
+                    <items>
+                        <Button mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
+                    </items>
+                    <items>
+                        <Button mnemonicParsing="false" onAction="#onReportsButtonClick" text="Reports" />
+                    </items>
+                </ToolBar>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="800.0" text="Blacklisted Students" translateY="15.0">
+                    <font>
+                        <Font name="Avenir Book" size="50.0" />
+                    </font>
+                </Label>
+                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="800.0" translateY="25.0">
+                    <children>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="400.0">
+                            <children>
+                                <TableView fx:id="studentTableView" maxWidth="799.0" prefHeight="434.0" prefWidth="360.0" translateX="200.0">
+                                    <columns>
+                                        <TableColumn fx:id="studentNameColumn" editable="false" maxWidth="430.0" minWidth="101.0" prefWidth="183.5" text="Student Name" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </VBox.margin>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
