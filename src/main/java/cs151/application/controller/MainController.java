@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 
-public class MainController {
+public class MainController implements SceneNavigable{
 
     private Stage stage;
 
@@ -27,6 +27,8 @@ public class MainController {
     private TableView tableView;
     @FXML
     private TableColumn<String, String> languageColumn;
+
+    private Faculty faculty = new Faculty();
 
     // change back to homepage
     @FXML
@@ -105,7 +107,7 @@ public class MainController {
         }
     }
 
-    protected void changeScene(ActionEvent event, String fxmlFile) {
+    public void changeScene(ActionEvent event, String fxmlFile) {
         try {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));

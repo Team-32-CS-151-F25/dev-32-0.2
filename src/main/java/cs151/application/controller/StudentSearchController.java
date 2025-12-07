@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentSearchController {
+public class StudentSearchController implements SceneNavigable {
     private Stage stage;
 
     @FXML
@@ -214,7 +214,7 @@ public class StudentSearchController {
         changeScene(event, "/cs151/application/view/hello-view.fxml");
     }
 
-    protected void changeScene(ActionEvent event, String fxmlFile) {
+    public void changeScene(ActionEvent event, String fxmlFile) {
         try{
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));

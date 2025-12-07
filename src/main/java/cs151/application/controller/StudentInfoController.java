@@ -26,7 +26,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class StudentInfoController {
+public class StudentInfoController implements SceneNavigable{
         private Stage stage;
 
         @FXML
@@ -221,7 +221,7 @@ public class StudentInfoController {
             stage.show();
         }
     }
-        protected void changeScene(ActionEvent event, String fxmlFile) {
+        public void changeScene(ActionEvent event, String fxmlFile) {
             try{
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));

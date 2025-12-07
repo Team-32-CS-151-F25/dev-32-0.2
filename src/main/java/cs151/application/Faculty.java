@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.util.List;
 
 public class Faculty {
+    ProgrammingLanguage programmingLanguage =
+            new ProgrammingLanguage();
+    StudentProfile studentProfile = new StudentProfile();
+
 
 
     public static void setProgrammingLanguage(String Language) throws IOException {

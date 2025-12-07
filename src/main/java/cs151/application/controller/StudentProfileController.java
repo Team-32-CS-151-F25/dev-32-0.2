@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class StudentProfileController {
+public class StudentProfileController implements SceneNavigable {
 
     private Stage stage;
 
@@ -283,7 +283,7 @@ public class StudentProfileController {
         alert.showAndWait();
     }
 
-    protected void changeScene(ActionEvent event, String fxmlFile) {
+    public void changeScene(ActionEvent event, String fxmlFile) {
         try {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));

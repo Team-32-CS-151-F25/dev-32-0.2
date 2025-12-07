@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ReportController {
+public class ReportController implements SceneNavigable{
     private Stage stage;
    // @FXML private TextField searchEntry;
 //    @FXML private TableView<Student> studentTableView;
@@ -24,7 +24,7 @@ public class ReportController {
 //    private ObservableList<Student> matchedStudents;
 
 
-    protected void changeScene(ActionEvent event, String fxmlFile) {
+    public void changeScene(ActionEvent event, String fxmlFile) {
         try {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));

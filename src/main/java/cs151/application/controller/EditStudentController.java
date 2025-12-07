@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class EditStudentController {
+public class EditStudentController implements SceneNavigable{
 
     private Stage stage;
 
@@ -342,7 +342,7 @@ public class EditStudentController {
         changeScene(event, "/cs151/application/view/profileMainPage.fxml");
     }
 
-    protected void changeScene(ActionEvent event, String fxmlFile) {
+    public void changeScene(ActionEvent event, String fxmlFile) {
         try {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
